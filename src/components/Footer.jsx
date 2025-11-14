@@ -11,6 +11,7 @@ function Footer() {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
+              <img src="/images/logo.jpg" alt="" className='w-36' />
               <h3 className="text-white text-lg font-bold mb-4">GC Technologies</h3>
               <p className="text-white/60 leading-relaxed">
                 Empowering businesses through innovative technology solutions and expert staffing services.

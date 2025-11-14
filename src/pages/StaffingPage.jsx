@@ -19,14 +19,36 @@ import {
   ShoppingCart,
   Factory,
   Car,
-  Heart
+  Heart,
+  X,
+  Clock,
+  Calendar,
+  UserCheck,
+  TrendingUp,
+  Globe,
+  Award
 } from 'lucide-react';
 
 const StaffingPage = () => {
   const [activeSection, setActiveSection] = useState(null);
+  const [selectedCard, setSelectedCard] = useState(null);
+  const [selectedStaffingType, setSelectedStaffingType] = useState(null);
 
   const toggleSection = (section) => {
     setActiveSection(activeSection === section ? null : section);
+  };
+
+  const openModal = (card) => {
+    setSelectedCard(card);
+  };
+
+  const closeModal = () => {
+    setSelectedCard(null);
+    setSelectedStaffingType(null);
+  };
+
+  const openStaffingModal = (type) => {
+    setSelectedStaffingType(type);
   };
 
   const staffingFeatures = [
@@ -42,7 +64,17 @@ const StaffingPage = () => {
         "WhatsApp business API integration",
         "Plugins and scripts to extract",
         "DIGIVERIFIED resumes from ViTS database"
-      ]
+      ],
+      details: {
+        description: "Our AI-driven profiling system leverages cutting-edge machine learning algorithms to match candidates with job requirements with unprecedented accuracy.",
+        benefits: [
+          "95% accuracy in candidate-job matching",
+          "Reduces screening time by 70%",
+          "Real-time candidate scoring",
+          "Automated resume parsing and analysis"
+        ],
+        icon: <Brain className="w-8 h-8" />
+      }
     },
     {
       icon: <Users className="w-6 h-6" />,
@@ -55,7 +87,17 @@ const StaffingPage = () => {
         "Video Conferencing tools",
         "Autonomous candidate follow-ups",
         "Automated interview rounds"
-      ]
+      ],
+      details: {
+        description: "Comprehensive screening solutions that combine AI-powered tools with human expertise to identify the best talent efficiently.",
+        benefits: [
+          "Multi-stage automated screening",
+          "Real-time coding assessments",
+        "AI-powered interview analysis",
+          "Automated candidate engagement"
+        ],
+        icon: <UserCheck className="w-8 h-8" />
+      }
     },
     {
       icon: <ShieldCheck className="w-6 h-6" />,
@@ -68,44 +110,147 @@ const StaffingPage = () => {
         "ID & Address",
         "Education",
         "Unlimited Employment"
-      ]
+      ],
+      details: {
+        description: "Thorough background verification process ensuring complete transparency and reliability in candidate selection.",
+        benefits: [
+          "100% digital verification process",
+          "Real-time document validation",
+          "Compliance with industry standards",
+          "Comprehensive employment history check"
+        ],
+        icon: <Award className="w-8 h-8" />
+      }
     }
   ];
 
   const staffingTypes = [
-    { name: "Contract" },
-    { name: "Contract to Hire" },
-    { name: "Permanent / Full time Hire" },
-    { name: "Flexi Staffing (On demand)" },
-    { name: "Work Ready Consultants (RTD)" }
+    { 
+      name: "Contract",
+      details: {
+        title: "Contract Staffing",
+        description: "Flexible staffing solutions for project-based work and temporary positions.",
+        duration: "3-12 months",
+        benefits: [
+          "Quick onboarding process",
+          "Flexible engagement models",
+          "Cost-effective solution",
+          "Specialized skill access"
+        ],
+        bestFor: ["Project-based work", "Seasonal demands", "Specialized skill requirements"],
+        icon: <Clock className="w-6 h-6" />
+      }
+    },
+    { 
+      name: "Contract to Hire",
+      details: {
+        title: "Contract to Hire",
+        description: "Evaluate candidates on the job before making permanent hiring decisions.",
+        duration: "3-6 months trial",
+        benefits: [
+          "Reduced hiring risk",
+          "Cultural fit assessment",
+          "Performance evaluation",
+          "Seamless transition"
+        ],
+        bestFor: ["Long-term positions", "Cultural fit critical roles", "Performance-sensitive roles"],
+        icon: <Calendar className="w-6 h-6" />
+      }
+    },
+    { 
+      name: "Permanent / Full time Hire",
+      details: {
+        title: "Permanent Staffing",
+        description: "Comprehensive permanent staffing solutions for long-term organizational needs.",
+        duration: "Permanent",
+        benefits: [
+          "Dedicated resources",
+          "Long-term commitment",
+          "Company culture integration",
+          "Career growth planning"
+        ],
+        bestFor: ["Core team members", "Leadership positions", "Long-term strategic roles"],
+        icon: <UserCheck className="w-6 h-6" />
+      }
+    },
+    { 
+      name: "Flexi Staffing (On demand)",
+      details: {
+        title: "Flexi Staffing",
+        description: "On-demand staffing solutions for fluctuating business requirements.",
+        duration: "As needed",
+        benefits: [
+          "Instant scalability",
+          "Pay-per-use model",
+          "Zero overhead costs",
+          "24/7 availability"
+        ],
+        bestFor: ["Peak season demands", "Short-term projects", "Emergency replacements"],
+        icon: <TrendingUp className="w-6 h-6" />
+      }
+    },
+    { 
+      name: "Work Ready Consultants (RTD)",
+      details: {
+        title: "Work Ready Consultants",
+        description: "Pre-screened, trained consultants ready to deploy immediately.",
+        duration: "Immediate deployment",
+        benefits: [
+          "Zero training time",
+          "Industry certified",
+          "Immediate productivity",
+          "Quality guaranteed"
+        ],
+        bestFor: ["Urgent requirements", "Specialized projects", "Quality-critical work"],
+        icon: <Award className="w-6 h-6" />
+      }
+    }
   ];
 
   const domainExpertise = [
-    "Expertise in sourcing PEGA Specialist",
-    "DEVOPS and DATA ANALYTICS resources",
-    "SAP (Functional, Technical, Niche requirements)",
-    "MS Technologies",
-    "PeopleSoft & Siebel",
-    "Cloud Implementations & Migrations"
+    {
+      name: "Expertise in sourcing PEGA Specialist",
+      details: "Specialized in recruiting PEGA certified professionals with hands-on experience in Pega PRPC, case management, and decisioning analytics."
+    },
+    {
+      name: "DEVOPS and DATA ANALYTICS resources",
+      details: "Comprehensive DevOps and Data Analytics talent pool with expertise in CI/CD, cloud platforms, big data technologies, and business intelligence tools."
+    },
+    {
+      name: "SAP (Functional, Technical, Niche requirements)",
+      details: "End-to-end SAP recruitment covering all modules including FI/CO, MM, SD, PP, and specialized roles like SAP HANA, Fiori, and S/4HANA."
+    },
+    {
+      name: "MS Technologies",
+      details: "Microsoft technology experts including .NET, Azure, Dynamics 365, Power Platform, and SharePoint developers and architects."
+    },
+    {
+      name: "PeopleSoft & Siebel",
+      details: "Specialized recruitment for Oracle PeopleSoft and Siebel CRM implementations, upgrades, and support projects."
+    },
+    {
+      name: "Cloud Implementations & Migrations",
+      details: "Cloud specialists across AWS, Azure, and GCP with experience in cloud architecture, migration strategies, and multi-cloud implementations."
+    }
   ];
 
   const industries = [
-    { icon: <Building className="w-5 h-5" />, name: "Banking / Financials" },
-    { icon: <ShoppingCart className="w-5 h-5" />, name: "Retail" },
-    { icon: <Factory className="w-5 h-5" />, name: "Manufacturing" },
-    { icon: <Heart className="w-5 h-5" />, name: "Life Sciences / Healthcare" },
-    { icon: <Car className="w-5 h-5" />, name: "Automotive" },
-    { icon: <ShieldCheck className="w-5 h-5" />, name: "Insurance and others" }
+    { icon: <Building className="w-5 h-5" />, name: "Banking / Financials", details: "Staffing solutions for banking, financial services, and insurance sectors with compliance-focused hiring." },
+    { icon: <ShoppingCart className="w-5 h-5" />, name: "Retail", details: "Retail and e-commerce staffing expertise including supply chain, merchandising, and digital commerce roles." },
+    { icon: <Factory className="w-5 h-5" />, name: "Manufacturing", details: "Manufacturing industry specialists for production, quality control, supply chain, and industrial engineering." },
+    { icon: <Heart className="w-5 h-5" />, name: "Life Sciences / Healthcare", details: "Healthcare and life sciences staffing with focus on regulatory compliance and specialized medical expertise." },
+    { icon: <Car className="w-5 h-5" />, name: "Automotive", details: "Automotive industry recruitment covering manufacturing, design, engineering, and supply chain management." },
+    { icon: <ShieldCheck className="w-5 h-5" />, name: "Insurance and others", details: "Insurance sector specialists and diverse industry coverage for all your staffing needs." }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-lightGray to-white py-8 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-8 px-4">
       {/* Header Section */}
-      <div className="max-w-4xl mx-auto text-center mb-12 animate-fade-in">
-        <h1 className="text-4xl md:text-5xl font-bold text-darkBlue mb-4 animate-fade-in-up">
-          Staffing: Our <span className="text-primary">Differentiator</span>
+      <div className="max-w-4xl mx-auto text-center mb-12">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+          Staffing: Our <span className="text-blue-600">Differentiator</span>
         </h1>
-        <p className="text-lg text-gray-600 mb-8 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+        <p className="text-lg text-gray-600 mb-8">
           AI-powered staffing solutions that transform your hiring process
         </p>
       </div>
@@ -115,39 +260,44 @@ const StaffingPage = () => {
         {staffingFeatures.map((feature, index) => (
           <div 
             key={index}
-            className="bg-white rounded-2xl shadow-lg p-6 animate-fade-in-up"
-            style={{animationDelay: `${0.3 + index * 0.1}s`}}
+            className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-blue-200"
+            onClick={() => openModal(feature)}
           >
             <div className="flex items-center mb-4">
-              <div className="p-3 rounded-xl bg-primary text-white mr-4">
+              <div className="p-3 rounded-xl bg-blue-600 text-white mr-4">
                 {feature.icon}
               </div>
               <div>
-                <h3 className="text-xl font-bold text-darkBlue">{feature.title}</h3>
+                <h3 className="text-xl font-bold text-gray-800">{feature.title}</h3>
                 {feature.subtitle && (
-                  <p className="text-sm text-secondary font-medium">{feature.subtitle}</p>
+                  <p className="text-sm text-blue-500 font-medium">{feature.subtitle}</p>
                 )}
               </div>
             </div>
             <ul className="space-y-2">
               {feature.features.map((item, idx) => (
                 <li key={idx} className="flex items-start text-gray-700">
-                  <CheckCircle className="w-4 h-4 text-accentOrange mt-1 mr-2 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-green-500 mt-1 mr-2 flex-shrink-0" />
                   <span className="text-sm">{item}</span>
                 </li>
               ))}
             </ul>
+            <div className="mt-4 pt-4 border-t border-gray-100">
+              <span className="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors">
+                Learn more →
+              </span>
+            </div>
           </div>
         ))}
       </div>
 
       {/* Staffing Solutions Section */}
-      <div className="max-w-6xl mx-auto bg-white rounded-2xl shadow-lg p-6 mb-8 animate-fade-in-up" style={{animationDelay: '0.6s'}}>
+      <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-lg p-6 mb-8 border border-gray-100">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-darkBlue mb-4">
-            Staffing Solutions & Staffing Options
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            Staffing Solutions & Options
           </h2>
-          <p className="text-gray-600 leading-relaxed">
+          <p className="text-gray-600 leading-relaxed max-w-4xl mx-auto">
             GCTechnologies is diversified across service lines and industry sectors to provide our clients 
             with the best possible HR services and solutions. We evolve with changing staffing, business, 
             and economic conditions while leveraging our worldwide network and staffing expertise.
@@ -156,14 +306,33 @@ const StaffingPage = () => {
 
         {/* Staffing Types */}
         <div className="mb-8">
-          <h3 className="text-2xl font-bold text-primary mb-4">Staffing Type</h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+          <h3 className="text-2xl font-bold text-blue-600 mb-6">Staffing Types</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {staffingTypes.map((type, index) => (
               <div 
                 key={index}
-                className="bg-lightGray rounded-lg p-4 text-center hover:bg-primary hover:text-white transition-all duration-300 cursor-pointer"
+                className="bg-gradient-to-br from-white to-blue-50 rounded-lg p-5 border border-blue-100 hover:border-blue-300 transition-all duration-300 cursor-pointer hover:shadow-lg group"
+                onClick={() => openStaffingModal(type)}
               >
-                <span className="font-medium text-sm">{type.name}</span>
+                <div className="flex items-center justify-between mb-3">
+                  <h4 className="font-bold text-gray-800 group-hover:text-blue-700 transition-colors">
+                    {type.name}
+                  </h4>
+                  <div className="p-2 bg-blue-100 rounded-lg group-hover:bg-blue-200 transition-colors">
+                    {type.details.icon}
+                  </div>
+                </div>
+                <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+                  {type.details.description}
+                </p>
+                <div className="flex justify-between items-center">
+                  <span className="text-xs text-blue-600 font-medium bg-blue-50 px-2 py-1 rounded">
+                    {type.details.duration}
+                  </span>
+                  <span className="text-blue-600 text-sm font-medium group-hover:text-blue-700 transition-colors">
+                    View details →
+                  </span>
+                </div>
               </div>
             ))}
           </div>
@@ -172,17 +341,28 @@ const StaffingPage = () => {
         {/* Domain Expertise */}
         <div className="mb-8">
           <div 
-            className="flex items-center justify-between cursor-pointer"
+            className="flex items-center justify-between cursor-pointer p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
             onClick={() => toggleSection('domain')}
           >
-            <h3 className="text-2xl font-bold text-primary">Domain Expertise</h3>
-            {activeSection === 'domain' ? <ChevronUp /> : <ChevronDown />}
+            <h3 className="text-2xl font-bold text-blue-600">Domain Expertise</h3>
+            {activeSection === 'domain' ? 
+              <ChevronUp className="text-blue-600" /> : 
+              <ChevronDown className="text-blue-600" />
+            }
           </div>
           {activeSection === 'domain' && (
-            <div className="mt-4 grid gap-3 md:grid-cols-2 lg:grid-cols-3 animate-fade-in">
+            <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3 animate-fade-in">
               {domainExpertise.map((expertise, index) => (
-                <div key={index} className="bg-lightGray rounded-lg p-4 hover:shadow-md transition-shadow">
-                  <span className="text-gray-700">{expertise}</span>
+                <div 
+                  key={index} 
+                  className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer hover:border-blue-200"
+                  onClick={() => openModal({...expertise, type: 'domain'})}
+                >
+                  <h4 className="font-semibold text-gray-800 mb-2">{expertise.name}</h4>
+                  <p className="text-sm text-gray-600 line-clamp-2">{expertise.details}</p>
+                  <span className="text-blue-600 text-xs font-medium mt-2 inline-block hover:text-blue-700">
+                    Read more →
+                  </span>
                 </div>
               ))}
             </div>
@@ -192,23 +372,36 @@ const StaffingPage = () => {
         {/* Industry Focus */}
         <div>
           <div 
-            className="flex items-center justify-between cursor-pointer"
+            className="flex items-center justify-between cursor-pointer p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
             onClick={() => toggleSection('industry')}
           >
-            <h3 className="text-2xl font-bold text-primary">Industry Focus</h3>
-            {activeSection === 'industry' ? <ChevronUp /> : <ChevronDown />}
+            <h3 className="text-2xl font-bold text-blue-600">Industry Focus</h3>
+            {activeSection === 'industry' ? 
+              <ChevronUp className="text-blue-600" /> : 
+              <ChevronDown className="text-blue-600" />
+            }
           </div>
           {activeSection === 'industry' && (
-            <div className="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 animate-fade-in">
+            <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 animate-fade-in">
               {industries.map((industry, index) => (
                 <div 
                   key={index}
-                  className="flex flex-col items-center p-4 bg-lightGray rounded-lg hover:bg-primary hover:text-white transition-all duration-300 cursor-pointer"
+                  className="flex items-center p-4 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-all duration-300 cursor-pointer hover:border-blue-200 group"
+                  onClick={() => openModal({...industry, type: 'industry'})}
                 >
-                  <div className="mb-2 text-primary group-hover:text-white">
-                    {industry.icon}
+                  <div className="p-3 bg-blue-100 rounded-lg mr-4 group-hover:bg-blue-200 transition-colors">
+                    <div className="text-blue-600">
+                      {industry.icon}
+                    </div>
                   </div>
-                  <span className="text-sm text-center font-medium">{industry.name}</span>
+                  <div className="flex-1">
+                    <h4 className="font-semibold text-gray-800 group-hover:text-blue-700 transition-colors">
+                      {industry.name}
+                    </h4>
+                    <p className="text-sm text-gray-600 mt-1 line-clamp-2">
+                      {industry.details}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -217,19 +410,159 @@ const StaffingPage = () => {
       </div>
 
       {/* CTA Section */}
-      <div className="max-w-4xl mx-auto text-center animate-fade-in-up" style={{animationDelay: '0.8s'}}>
-        <div className="bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 text-white">
+      <div className="max-w-4xl mx-auto text-center">
+        <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white shadow-lg">
           <h3 className="text-2xl md:text-3xl font-bold mb-4">
             Ready to Transform Your Staffing Process?
           </h3>
-          <p className="mb-6 opacity-90">
-            Leverage our AI-powered platform and global expertise to find the perfect candidates.
+          <p className="mb-6 opacity-90 max-w-2xl mx-auto">
+            Leverage our AI-powered platform and global expertise to find the perfect candidates for your organization.
           </p>
-          <button className="bg-white text-primary px-8 py-3 rounded-full font-bold hover:bg-lightGray transition-colors duration-300">
+          <button className="bg-white text-blue-600 px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl">
             Get Started Today
           </button>
         </div>
       </div>
+
+      {/* Feature Detail Modal */}
+      {selectedCard && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 animate-fade-in">
+          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto animate-scale-in">
+            <div className="sticky top-0 bg-white border-b border-gray-200 p-6 rounded-t-2xl flex justify-between items-center">
+              <div className="flex items-center">
+                <div className="p-3 rounded-xl bg-blue-600 text-white mr-4">
+                  {selectedCard.details?.icon || selectedCard.icon}
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-800">{selectedCard.title || selectedCard.name}</h3>
+                  {selectedCard.subtitle && (
+                    <p className="text-blue-500 font-medium">{selectedCard.subtitle}</p>
+                  )}
+                </div>
+              </div>
+              <button 
+                onClick={closeModal}
+                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+              >
+                <X className="w-6 h-6 text-gray-500" />
+              </button>
+            </div>
+            
+            <div className="p-6">
+              {selectedCard.details ? (
+                <>
+                  <p className="text-gray-700 mb-6 text-lg">
+                    {selectedCard.details.description}
+                  </p>
+                  
+                  <div className="mb-6">
+                    <h4 className="font-bold text-gray-800 mb-3 text-lg">Key Benefits</h4>
+                    <div className="grid gap-2">
+                      {selectedCard.details.benefits.map((benefit, index) => (
+                        <div key={index} className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
+                          <span className="text-gray-700">{benefit}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {selectedCard.features && (
+                    <div>
+                      <h4 className="font-bold text-gray-800 mb-3 text-lg">Features</h4>
+                      <div className="grid gap-2">
+                        {selectedCard.features.map((feature, index) => (
+                          <div key={index} className="flex items-start">
+                            <CheckCircle className="w-4 h-4 text-blue-500 mt-1 mr-3 flex-shrink-0" />
+                            <span className="text-gray-600">{feature}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </>
+              ) : (
+                <>
+                  <p className="text-gray-700 mb-6 text-lg">
+                    {selectedCard.details || selectedCard.description}
+                  </p>
+                  {selectedCard.type === 'industry' && (
+                    <div className="bg-blue-50 p-4 rounded-lg">
+                      <h4 className="font-bold text-blue-800 mb-2">Industry Specialization</h4>
+                      <p className="text-blue-700">
+                        We have extensive experience and specialized recruitment processes tailored for the {selectedCard.name} industry.
+                      </p>
+                    </div>
+                  )}
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Staffing Type Detail Modal */}
+      {selectedStaffingType && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 animate-fade-in">
+          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto animate-scale-in">
+            <div className="sticky top-0 bg-white border-b border-gray-200 p-6 rounded-t-2xl flex justify-between items-center">
+              <div className="flex items-center">
+                <div className="p-3 rounded-xl bg-blue-600 text-white mr-4">
+                  {selectedStaffingType.details.icon}
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-800">{selectedStaffingType.details.title}</h3>
+                  <p className="text-blue-500 font-medium">{selectedStaffingType.name}</p>
+                </div>
+              </div>
+              <button 
+                onClick={closeModal}
+                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+              >
+                <X className="w-6 h-6 text-gray-500" />
+              </button>
+            </div>
+            
+            <div className="p-6">
+              <div className="mb-6">
+                <p className="text-gray-700 text-lg mb-4">
+                  {selectedStaffingType.details.description}
+                </p>
+                <div className="flex items-center text-sm text-gray-600 bg-gray-50 p-3 rounded-lg inline-flex">
+                  <Clock className="w-4 h-4 mr-2" />
+                  <span>Typical Duration: <strong>{selectedStaffingType.details.duration}</strong></span>
+                </div>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h4 className="font-bold text-gray-800 mb-3 text-lg">Key Benefits</h4>
+                  <div className="space-y-2">
+                    {selectedStaffingType.details.benefits.map((benefit, index) => (
+                      <div key={index} className="flex items-start">
+                        <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
+                        <span className="text-gray-700">{benefit}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
+                <div>
+                  <h4 className="font-bold text-gray-800 mb-3 text-lg">Best For</h4>
+                  <div className="space-y-2">
+                    {selectedStaffingType.details.bestFor.map((useCase, index) => (
+                      <div key={index} className="flex items-start">
+                        <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0" />
+                        <span className="text-gray-700">{useCase}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

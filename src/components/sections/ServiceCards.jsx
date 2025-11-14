@@ -1,73 +1,115 @@
-import { Users, Code, Cloud, Rocket, Database, Server, Smartphone, Lock } from 'lucide-react';
+import { Users, Code, Cloud, Rocket, Database, Smartphone, Lock, Server, Cpu, Shield, Zap, Globe } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 function ServicesCards() {
   const services = [
     {
-      icon: <Users className="w-8 h-8" />,
+      icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
       title: 'IT Staffing',
       description: 'Exclusive verified HR resources with specialist skills across all technology domains. Find the perfect talent for your projects.',
       features: ['500+ Verified Candidates', 'Quick Onboarding', 'Diverse Skill Sets'],
       stat: '500+',
       statLabel: 'Verified Candidates',
-      borderGradient: 'from-sky-400 to-cyan-400',
-      chip: 'from-sky-50 to-cyan-50',
+      iconBg: 'bg-gradient-to-br from-blue-500 to-cyan-500',
+      iconColor: 'text-white',
+      borderColor: 'border-blue-200',
       delay: 0.1,
     },
     {
-      icon: <Code className="w-8 h-8" />,
+      icon: <Code className="w-6 h-6 sm:w-8 sm:h-8" />,
       title: 'Development Services',
       description: 'End-to-end digital transformation from strategy to implementation with cutting-edge technologies.',
       features: ['50+ Projects Delivered', 'Agile Methodology', 'Quality Assurance'],
       stat: '50+',
       statLabel: 'Projects Delivered',
-      borderGradient: 'from-violet-400 to-fuchsia-400',
-      chip: 'from-violet-50 to-fuchsia-50',
+      iconBg: 'bg-gradient-to-br from-purple-500 to-pink-500',
+      iconColor: 'text-white',
+      borderColor: 'border-purple-200',
       delay: 0.2,
     },
     {
-      icon: <Cloud className="w-8 h-8" />,
+      icon: <Cloud className="w-6 h-6 sm:w-8 sm:h-8" />,
       title: 'Cloud Solutions',
       description: 'Industry-specific digital capabilities and cloud-native applications for scalable growth.',
       features: ['Multi-Cloud Expertise', 'Cost Optimization', '24/7 Monitoring'],
       stat: '15+',
       statLabel: 'Industries Served',
-      borderGradient: 'from-amber-400 to-orange-400',
-      chip: 'from-amber-50 to-orange-50',
+      iconBg: 'bg-gradient-to-br from-amber-500 to-orange-500',
+      iconColor: 'text-white',
+      borderColor: 'border-amber-200',
       delay: 0.3,
     },
     {
-      icon: <Database className="w-8 h-8" />,
+      icon: <Database className="w-6 h-6 sm:w-8 sm:h-8" />,
       title: 'Data Analytics',
       description: 'Transform your data into actionable insights with advanced analytics and BI solutions.',
       features: ['Real-time Analytics', 'Predictive Modeling', 'Custom Dashboards'],
       stat: '100+',
       statLabel: 'Data Projects',
-      borderGradient: 'from-emerald-400 to-teal-400',
-      chip: 'from-emerald-50 to-teal-50',
+      iconBg: 'bg-gradient-to-br from-emerald-500 to-teal-500',
+      iconColor: 'text-white',
+      borderColor: 'border-emerald-200',
       delay: 0.4,
     },
     {
-      icon: <Smartphone className="w-8 h-8" />,
+      icon: <Smartphone className="w-6 h-6 sm:w-8 sm:h-8" />,
       title: 'Mobile Development',
       description: 'Create engaging mobile experiences with native and cross-platform applications.',
       features: ['iOS & Android', 'React Native', 'Flutter Expertise'],
       stat: '75+',
       statLabel: 'Mobile Apps',
-      borderGradient: 'from-rose-400 to-pink-400',
-      chip: 'from-rose-50 to-pink-50',
+      iconBg: 'bg-gradient-to-br from-rose-500 to-pink-500',
+      iconColor: 'text-white',
+      borderColor: 'border-rose-200',
       delay: 0.5,
     },
     {
-      icon: <Lock className="w-8 h-8" />,
+      icon: <Lock className="w-6 h-6 sm:w-8 sm:h-8" />,
       title: 'Cybersecurity',
       description: 'Protect your digital assets with comprehensive security solutions and best practices.',
       features: ['Risk Assessment', 'Security Audits', 'Compliance Management'],
       stat: '99.9%',
       statLabel: 'Security Uptime',
-      borderGradient: 'from-red-400 to-rose-400',
-      chip: 'from-red-50 to-rose-50',
+      iconBg: 'bg-gradient-to-br from-red-500 to-rose-500',
+      iconColor: 'text-white',
+      borderColor: 'border-red-200',
       delay: 0.6,
+    },
+    {
+      icon: <Server className="w-6 h-6 sm:w-8 sm:h-8" />,
+      title: 'DevOps',
+      description: 'Streamline your development and operations with automated CI/CD pipelines and infrastructure.',
+      features: ['CI/CD Pipelines', 'Infrastructure as Code', 'Containerization'],
+      stat: '200+',
+      statLabel: 'Deployments',
+      iconBg: 'bg-gradient-to-br from-indigo-500 to-blue-500',
+      iconColor: 'text-white',
+      borderColor: 'border-indigo-200',
+      delay: 0.7,
+    },
+    {
+      icon: <Cpu className="w-6 h-6 sm:w-8 sm:h-8" />,
+      title: 'AI & ML',
+      description: 'Leverage artificial intelligence and machine learning to drive intelligent business decisions.',
+      features: ['Predictive Analytics', 'Computer Vision', 'NLP Solutions'],
+      stat: '30+',
+      statLabel: 'AI Models',
+      iconBg: 'bg-gradient-to-br from-violet-500 to-purple-500',
+      iconColor: 'text-white',
+      borderColor: 'border-violet-200',
+      delay: 0.8,
+    },
+    {
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
+      title: 'Digital Transformation',
+      description: 'Comprehensive strategy and implementation for your digital evolution journey.',
+      features: ['Digital Strategy', 'Change Management', 'Process Automation'],
+      stat: '40+',
+      statLabel: 'Enterprises',
+      iconBg: 'bg-gradient-to-br from-cyan-500 to-blue-500',
+      iconColor: 'text-white',
+      borderColor: 'border-cyan-200',
+      delay: 0.9,
     },
   ];
 
@@ -94,20 +136,20 @@ function ServicesCards() {
   };
 
   return (
-    <section className="py-20 ">
-      <div className="container mx-auto px-4 sm:px-6">
+    <section className="py-16 border  sm:py-20 bg-slate-100">
+      <div className="container mx-auto  px-4 sm:px-6">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Our <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Services</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+            Our <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Services</span>
           </h2>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
             Comprehensive technology solutions designed to drive your business forward. 
             From staffing to full-scale digital transformation.
           </p>
@@ -119,71 +161,73 @@ function ServicesCards() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6    sm:gap-8"
         >
           {services.map((service, index) => (
             <motion.div
               key={service.title}
               variants={cardVariants}
-              className="group relative rounded-3xl p-8 bg-white/5 backdrop-blur-sm border border-white/10
-              shadow-2xl transition-all duration-500 hover:bg-white/10"
+              className="group relative rounded-2xl sm:rounded-3xl p-6 sm:p-8 bg-white border-2 border-gray-100
+              shadow-lg hover:shadow-2xl transition-all duration-500 hover:border-gray-200
+              hover:-translate-y-2"
               whileHover={{ 
-                y: -8,
                 scale: 1.02,
               }}
             >
-              {/* Gradient border on hover */}
-              <div
-                className={`absolute inset-0 rounded-3xl bg-gradient-to-r ${service.borderGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10`}
-              />
-
               {/* Inner content */}
               <div className="relative z-10">
-                {/* Icon chip */}
+                {/* Icon */}
                 <motion.div
-                  className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.chip} border border-white/20
-                  flex items-center justify-center text-slate-700 mb-6`}
+                  className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl ${service.iconBg} ${service.borderColor}
+                  flex items-center justify-center ${service.iconColor} mb-4 sm:mb-6 border-2
+                  group-hover:scale-110 transition-transform duration-300`}
                   whileHover={{ scale: 1.1, rotate: 5 }}
                 >
                   {service.icon}
                 </motion.div>
 
                 {/* Title & Description */}
-                <h3 className="text-2xl font-bold text-white mb-4">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
                   {service.title}
                 </h3>
-                <p className="text-white/80 leading-relaxed mb-6">
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4 sm:mb-6">
                   {service.description}
                 </p>
 
                 {/* Features List */}
-                <ul className="space-y-2 mb-6">
+                <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
                   {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-white/70 text-sm">
-                      <div className="w-2 h-2 bg-current rounded-full mr-3" />
-                      {feature}
+                    <li key={idx} className="flex items-center text-gray-700 text-xs sm:text-sm">
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-current rounded-full mr-2 sm:mr-3 flex-shrink-0" />
+                      <span className="leading-tight">{feature}</span>
                     </li>
                   ))}
                 </ul>
 
                 {/* Stats */}
-                <div className="flex items-center justify-between pt-6 border-t border-white/20">
+                <div className="flex items-center justify-between pt-4 sm:pt-6 border-t border-gray-200">
                   <div>
-                    <div className="text-2xl font-bold text-white">{service.stat}</div>
-                    <div className="text-sm text-white/60">{service.statLabel}</div>
+                    <div className="text-xl sm:text-2xl font-bold text-gray-900">{service.stat}</div>
+                    <div className="text-xs sm:text-sm text-gray-500">{service.statLabel}</div>
                   </div>
                   <motion.div
                     initial={{ opacity: 0, x: 10 }}
                     whileHover={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3 }}
+                    className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   >
-                    <Rocket className="w-6 h-6 text-white" />
+                    <Rocket className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 group-hover:text-blue-500 transition-colors" />
                   </motion.div>
                 </div>
               </div>
+
+              {/* Hover effect background */}
+              <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-gray-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
             </motion.div>
           ))}
         </motion.div>
+
+     
       </div>
     </section>
   );

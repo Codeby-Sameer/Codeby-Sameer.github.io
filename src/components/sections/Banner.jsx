@@ -91,7 +91,7 @@ function Banner() {
 
       {/* Enhanced Grid Pattern */}
       <div className="absolute inset-0 opacity-[0.05] [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:44px_44px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(160, 144, 144, 0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:44px_44px]" />
       </div>
 
       {/* Floating Particles */}
@@ -147,7 +147,7 @@ function Banner() {
                   </motion.div>
                 ))}
               </div>
-              <span className="text-white text-sm font-semibold">Empowering Growth Through Innovation</span>
+              <span className=" text-sm font-semibold">Empowering Growth Through Innovation</span>
               <Sparkles className="w-4 h-4 text-amber-300" />
             </motion.div>
 
