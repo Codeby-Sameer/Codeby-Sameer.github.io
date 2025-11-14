@@ -7,6 +7,8 @@ import SolutionsPage from './pages/SolutionsPage';
 import ServicesPage from './pages/ServicesPage';
 import Contact from './components/Contact';
 import About from './components/About';
+import Home from './components/Home';
+
 
 
 
@@ -15,7 +17,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Hero />} />
+          <Route index element={<Home/>} />
           <Route path="staffing" element={<StaffingPage />} />
           <Route path="services" element={<ServicesPage />} />
           <Route path="solutions" element={<SolutionsPage />} />
