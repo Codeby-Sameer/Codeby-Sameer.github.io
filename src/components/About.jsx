@@ -30,7 +30,7 @@ function About() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.2 }}
-      className="relative py-24 md:py-28 bg-white overflow-hidden"
+      className="relative py-24 md:py-28 bg-gradient-to-br from-blue-50 via-blue-50 to-blue-50  overflow-hidden"
     >
       {/* Background glows */}
       <div className="pointer-events-none absolute inset-0 -z-10">

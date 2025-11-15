@@ -64,62 +64,17 @@ function Banner() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('/images/banner1.avif')",
+            backgroundImage: "url('/images/background1.jpg')",
           }}
         />
         {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-slate-800 backdrop-blur-sm " />
+        <div className="absolute inset-0 bg-black/10 backdrop-blur-sm " />
       </div>
 
-      {/* Enhanced Background Elements */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-24 -left-16 h-[28rem] w-[28rem] rounded-full bg-gradient-to-br from-indigo-200/30 via-fuchsia-200/20 to-rose-200/20 blur-3xl" />
-        <div className="absolute -bottom-24 -right-16 h-[26rem] w-[26rem] rounded-full bg-gradient-to-br from-amber-200/30 to-pink-200/20 blur-3xl" />
-        <motion.div
-          className="absolute top-1/4 left-1/4 h-64 w-64 rounded-full bg-gradient-to-r from-blue-100/20 to-purple-100/20 blur-2xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-      </div>
 
-      {/* Enhanced Grid Pattern */}
-      <div className="absolute inset-0 opacity-[0.05] [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(160, 144, 144, 0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:44px_44px]" />
-      </div>
+    
 
-      {/* Floating Particles */}
-      <div className="absolute inset-0 pointer-events-none">
-        {particles.map((p, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full bg-gradient-to-br from-white/30 to-white/20"
-            initial={{ y: 0, opacity: 0 }}
-            animate={{
-              y: [-20, -40, -20],
-              opacity: [0, 1, 0],
-            }}
-            transition={{
-              duration: p.duration / 1000,
-              delay: p.delay / 1000,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            style={{
-              left: `${p.left}%`,
-              top: `${p.top}%`,
-              width: `${p.size}px`,
-              height: `${p.size}px`,
-            }}
-          />
-        ))}
-      </div>
+  
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div 
@@ -153,7 +108,7 @@ function Banner() {
 
             {/* Main Heading */}
             <motion.div variants={itemVariants}>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-5">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-5">
                 <span className="block mb-2 text-white">Welcome to</span>
                 <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                   GC Technologies
@@ -164,7 +119,7 @@ function Banner() {
             {/* Subtitle */}
             <motion.p
               variants={itemVariants}
-              className="text-lg md:text-xl text-white/90 mb-4 italic font-light"
+              className="text-lg  px-4 md:text-xl text-white/90 mb-4 italic font-light"
             >
               Growth & Creative - Where Innovation Meets Execution
             </motion.p>
@@ -172,7 +127,7 @@ function Banner() {
             {/* Description */}
             <motion.p
               variants={itemVariants}
-              className="text-base md:text-lg lg:text-xl text-white/80 mb-8 max-w-4xl mx-auto leading-relaxed"
+              className="text-base md:text-lg px-5 lg:text-xl text-white/80 mb-8 max-w-4xl mx-auto leading-relaxed"
             >
               We are a premier technology consulting and staffing firm committed to delivering innovative 
               solutions that drive digital transformation and operational excellence across global enterprises. 

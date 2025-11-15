@@ -244,16 +244,22 @@ const StaffingPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 py-8 px-4">
+    <div >
       {/* Header Section */}
-      <div className="max-w-4xl mx-auto text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-          Staffing: Our <span className="text-blue-600">Differentiator</span>
-        </h1>
-        <p className="text-lg text-gray-600 mb-8">
-          AI-powered staffing solutions that transform your hiring process
-        </p>
-      </div>
+       <section className="py-20 mb-28 bg-gradient-to-br from-blue-900 via-blue-700 to-purple-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in-up">
+              Staffing: Our <span className="text-white">Differentiator</span>
+            </h1>
+            <p className="text-xl text-white/90 leading-relaxed animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+                AI-powered staffing solutions that transform your hiring process
+            </p>
+          </div>
+        </div>
+      </section>
+      
 
       {/* Main Features Grid */}
       <div className="max-w-6xl mx-auto grid gap-6 md:grid-cols-3 mb-12">
@@ -410,7 +416,7 @@ const StaffingPage = () => {
       </div>
 
       {/* CTA Section */}
-      <div className="max-w-4xl mx-auto text-center">
+      <div className="max-w-4xl mx-auto mb-12 text-center">
         <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white shadow-lg">
           <h3 className="text-2xl md:text-3xl font-bold mb-4">
             Ready to Transform Your Staffing Process?
@@ -431,7 +437,7 @@ const StaffingPage = () => {
             <div className="sticky top-0 bg-white border-b border-gray-200 p-6 rounded-t-2xl flex justify-between items-center">
               <div className="flex items-center">
                 <div className="p-3 rounded-xl bg-blue-600 text-white mr-4">
-                  {selectedCard.details?.icon || selectedCard.icon}
+                  {selectedCard.details?.icon || selectedCard.icon || <Brain className="w-8 h-8" />}
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-800">{selectedCard.title || selectedCard.name}</h3>
@@ -449,6 +455,7 @@ const StaffingPage = () => {
             </div>
             
             <div className="p-6">
+              {/* Check if it's a main feature card with details */}
               {selectedCard.details ? (
                 <>
                   <p className="text-gray-700 mb-6 text-lg">
@@ -458,7 +465,7 @@ const StaffingPage = () => {
                   <div className="mb-6">
                     <h4 className="font-bold text-gray-800 mb-3 text-lg">Key Benefits</h4>
                     <div className="grid gap-2">
-                      {selectedCard.details.benefits.map((benefit, index) => (
+                      {selectedCard.details.benefits?.map((benefit, index) => (
                         <div key={index} className="flex items-start">
                           <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
                           <span className="text-gray-700">{benefit}</span>
@@ -482,6 +489,7 @@ const StaffingPage = () => {
                   )}
                 </>
               ) : (
+                /* Domain or Industry card */
                 <>
                   <p className="text-gray-700 mb-6 text-lg">
                     {selectedCard.details || selectedCard.description}
@@ -491,6 +499,14 @@ const StaffingPage = () => {
                       <h4 className="font-bold text-blue-800 mb-2">Industry Specialization</h4>
                       <p className="text-blue-700">
                         We have extensive experience and specialized recruitment processes tailored for the {selectedCard.name} industry.
+                      </p>
+                    </div>
+                  )}
+                  {selectedCard.type === 'domain' && (
+                    <div className="bg-green-50 p-4 rounded-lg">
+                      <h4 className="font-bold text-green-800 mb-2">Domain Expertise</h4>
+                      <p className="text-green-700">
+                        Our specialized recruitment team has deep expertise in {selectedCard.name.toLowerCase()}.
                       </p>
                     </div>
                   )}
@@ -567,4 +583,4 @@ const StaffingPage = () => {
   );
 };
 
-export default StaffingPage;
+export default StaffingPage; 

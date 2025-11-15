@@ -11,11 +11,13 @@ import {
   CheckCircle,
   Phone,
   Mail,
-  MapPin
+  MapPin,
+
 } from 'lucide-react';
 import ServicesCards from './sections/ServiceCards';
 import SocialMedia from './sections/SocailMedia';
 import Banner from './sections/Banner';
+import { Link } from 'react-router-dom';
 
 function Home() {
   const features = [
@@ -108,7 +110,7 @@ function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-gradient-to-br from-purple-900 to-slate-900">
+      <section className="py-20 bg-gradient-to-br from-purple-800 to-slate-600">
         <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -177,7 +179,7 @@ function Home() {
                 whileTap={{ scale: 0.95 }}
               >
                 <Phone className="w-5 h-5" />
-                <span>Schedule a Call</span>
+                <Link to="/contact">Schedule a Call</Link>
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </motion.div>
               
@@ -187,7 +189,7 @@ function Home() {
                 whileTap={{ scale: 0.95 }}
               >
                 <Mail className="w-5 h-5" />
-                <span>Send Message</span>
+                <Link to="/contact">Send Message</Link>
               </motion.div>
             </div>
           </motion.div>

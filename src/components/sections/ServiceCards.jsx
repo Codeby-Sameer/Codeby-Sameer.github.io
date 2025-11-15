@@ -136,7 +136,7 @@ function ServicesCards() {
   };
 
   return (
-    <section className="py-16 border  sm:py-20 bg-slate-100">
+    <section className="py-16 border  sm:py-20 bg-slate-300">
       <div className="container mx-auto  px-4 sm:px-6">
         {/* Section Header */}
         <motion.div

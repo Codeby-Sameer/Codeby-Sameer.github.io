@@ -123,7 +123,7 @@ function Contact() {
   };
 
   return (
-    <section className="relative py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50">
+    <section className="relative py-20 bg-gradient-to-br from-orange-200 via-white to-blue-500">
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute top-0 left-0 w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-50" />
