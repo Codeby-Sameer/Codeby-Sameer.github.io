@@ -1,176 +1,116 @@
-import { Heart, Target, Zap } from 'lucide-react';
-import { motion } from 'framer-motion';
+import React from 'react';
 
-const easing = [0.22, 1, 0.36, 1];
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.15,
+const About = () => {
+  const values = [
+    {
+      title: 'Innovation',
+      description: 'Leveraging cutting-edge technology and AI to deliver exceptional solutions.',
+      icon: '🚀',
+      color: 'text-primary'
     },
-  },
-};
+    {
+      title: 'Excellence',
+      description: 'Committed to delivering the highest quality services and staffing solutions.',
+      icon: '⭐',
+      color: 'text-accentOrange'
+    },
+    {
+      title: 'Partnership',
+      description: 'Building long-term relationships based on trust and mutual success.',
+      icon: '🤝',
+      color: 'text-secondary'
+    },
+    {
+      title: 'Integrity',
+      description: 'Genuine and transparent in all our business dealings.',
+      icon: '🔒',
+      color: 'text-accentPink'
+    }
+  ];
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 24, filter: 'blur(6px)' },
-  show: {
-    opacity: 1,
-    y: 0,
-    filter: 'blur(0px)',
-    transition: { duration: 0.6, ease: easing },
-  },
-};
-
-function About() {
   return (
-    <motion.section
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.2 }}
-      className="relative py-24 md:py-28 bg-gradient-to-br from-blue-50 via-blue-50 to-blue-50  overflow-hidden"
-    >
-      {/* Background glows */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-24 -left-24 h-[36rem] w-[36rem] rounded-full bg-gradient-to-br from-primary/20 via-secondary/20 to-accentPink/20 blur-3xl" />
-        <div className="absolute -bottom-32 -right-24 h-[32rem] w-[32rem] rounded-full bg-gradient-to-br from-accentPink/20 to-accentOrange/20 blur-3xl" />
-      </div>
+    <div className="min-h-screen py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-16 animate-fade-in">
+          <h1 className="text-4xl md:text-5xl font-bold text-darkBlue mb-6">
+            About GC Technologies
+          </h1>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            We are a dynamic technology company dedicated to driving business growth through innovative staffing solutions, comprehensive services, and cutting-edge technology implementations.
+          </p>
+        </div>
 
-      <div className="container mx-auto px-6">
-        <motion.div
-          variants={container}
-          className="max-w-6xl mx-auto"
-        >
-          {/* Heading */}
-          <div className="text-center mb-16">
-            <motion.h2
-              variants={fadeUp}
-              className="text-4xl md:text-5xl font-bold mb-6"
-            >
-              <span className="relative bg-gradient-to-r from-primary via-secondary to-accentPink bg-clip-text text-transparent drop-shadow-sm">
-                About GC Technologies
-              </span>
-            </motion.h2>
-
-            <motion.p
-              variants={fadeUp}
-              className="inline-flex items-center justify-center rounded-full border border-gray-200/80 bg-white/60 px-4 py-1.5 text-sm md:text-base text-gray-700 shadow-sm backdrop-blur"
-            >
-              Growth & Creative
-            </motion.p>
-          </div>
-
-          {/* Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-2">
-            {/* Left: Copy */}
-            <motion.div variants={fadeUp}>
-              <h3 className="text-3xl font-bold mb-6 text-gray-800">
-                We Know... We Are Small, Yet{" "}
-                <span className="text-accentOrange underline decoration-accentOrange/40 decoration-4 underline-offset-4">
-                  "Genuine"
-                </span>
-              </h3>
-
-              <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                At GC Technologies, we believe in empowering businesses through innovation, technology,
-                and genuine partnerships. Our commitment to excellence drives us to deliver solutions
-                that truly make a difference.
+        {/* Mission & Vision */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+          <div className="animate-fade-in-up">
+            <div className="bg-white  shadow-lg shadow-[20px_-20px_0_rgba(0,0,255,0.3)] p-8 border-l-4 border-primary">
+              <div className="text-3xl mb-4">🎯</div>
+              <h3 className="text-2xl font-bold text-darkBlue mb-4">Our Mission</h3>
+              <p className="text-gray-600 leading-relaxed">
+                To empower businesses with strategic IT solutions, exceptional talent, and innovative technology that drives operational efficiency, growth, and long-term success.
               </p>
-
-              <p className="text-gray-600 text-lg leading-relaxed">
-                We combine deep industry expertise with cutting-edge technology to help organizations
-                navigate their digital transformation journey. From staffing solutions to comprehensive
-                IT services, we're your trusted partner for growth.
-              </p>
-            </motion.div>
-
-            {/* Right: Feature cards */}
-            <motion.div
-              variants={container}
-              className="space-y-6"
-            >
-              {/* Card 1 */}
-              <motion.div
-                variants={fadeUp}
-                whileHover={{ y: -6, scale: 1.01, rotateX: 1.5, rotateY: -1.5 }}
-                transition={{ type: 'spring', stiffness: 300, damping: 22 }}
-                className="group relative transform-gpu"
-              >
-                <div className="absolute -inset-0.5 rounded-2xl opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-500 bg-gradient-to-br from-primary/30 to-secondary/30" />
-                <div className="relative rounded-2xl p-6 border border-gray-200/60 bg-white/70 backdrop-blur-xl shadow-xl">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg text-white">
-                      <Target className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h4 className="text-xl font-bold text-gray-800 mb-2">
-                        Our Vision
-                      </h4>
-                      <p className="text-gray-600">
-                        To be the trusted partner for businesses seeking innovative technology solutions and exceptional talent.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Card 2 */}
-              <motion.div
-                variants={fadeUp}
-                whileHover={{ y: -6, scale: 1.01, rotateX: 1.5, rotateY: -1.5 }}
-                transition={{ type: 'spring', stiffness: 300, damping: 22 }}
-                className="group relative transform-gpu"
-              >
-                <div className="absolute -inset-0.5 rounded-2xl opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-500 bg-gradient-to-br from-secondary/30 to-accentPink/30" />
-                <div className="relative rounded-2xl p-6 border border-gray-200/60 bg-white/70 backdrop-blur-xl shadow-xl">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-secondary to-accentPink rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg text-white">
-                      <Zap className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h4 className="text-xl font-bold text-gray-800 mb-2">
-                        Our Mission
-                      </h4>
-                      <p className="text-gray-600">
-                        Delivering growth-driven solutions through creative technology implementation and strategic consulting.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Card 3 */}
-              <motion.div
-                variants={fadeUp}
-                whileHover={{ y: -6, scale: 1.01, rotateX: 1.5, rotateY: -1.5 }}
-                transition={{ type: 'spring', stiffness: 300, damping: 22 }}
-                className="group relative transform-gpu"
-              >
-                <div className="absolute -inset-0.5 rounded-2xl opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-500 bg-gradient-to-br from-accentPink/30 to-accentOrange/30" />
-                <div className="relative rounded-2xl p-6 border border-gray-200/60 bg-white/70 backdrop-blur-xl shadow-xl">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-accentPink to-accentOrange rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg text-white">
-                      <Heart className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h4 className="text-xl font-bold text-gray-800 mb-2">
-                        Our Values
-                      </h4>
-                      <p className="text-gray-600">
-                        Genuine partnerships, innovation, excellence, and unwavering commitment to client success.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+          <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <div className="bg-white shadow-[20px_-20px_0_rgba(0,0,255,0.3)] shadow-lg p-8 border-l-4 border-secondary">
+              <div className="text-3xl mb-4">🔭</div>
+              <h3 className="text-2xl font-bold text-darkBlue mb-4">Our Vision</h3>
+              <p className="text-gray-600 leading-relaxed">
+                To be the leading partner for businesses seeking transformative technology solutions and exceptional talent in an increasingly digital world.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Values */}
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold text-darkBlue text-center mb-12">Our Values</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {values.map((value, index) => (
+              <div
+                key={value.title}
+                className="animate-fade-in-up bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className={`text-4xl mb-4 ${value.color}`}>{value.icon}</div>
+                <h3 className="text-xl font-bold text-darkBlue mb-3">{value.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{value.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Why Choose Us */}
+        <div className="bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 text-white animate-fade-in">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-6">Why Choose GC Technologies?</h2>
+            <p className="text-lg opacity-90 mb-6">
+              We understand that we are small, yet "genuine" in our approach to every client relationship. 
+              Our size allows us to provide personalized attention and tailored solutions that larger firms often overlook.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+              <div className="bg-white bg-opacity-10 rounded-lg p-4 backdrop-blur-sm">
+                <div className="text-2xl mb-2">🎯</div>
+                <h4 className="font-semibold mb-2">Tailored Solutions</h4>
+                <p className="text-sm opacity-90">Customized approaches for your unique business needs</p>
+              </div>
+              <div className="bg-white bg-opacity-10 rounded-lg p-4 backdrop-blur-sm">
+                <div className="text-2xl mb-2">⚡</div>
+                <h4 className="font-semibold mb-2">Rapid Deployment</h4>
+                <p className="text-sm opacity-90">Quick implementation without compromising quality</p>
+              </div>
+              <div className="bg-white bg-opacity-10 rounded-lg p-4 backdrop-blur-sm">
+                <div className="text-2xl mb-2">🤝</div>
+                <h4 className="font-semibold mb-2">Personal Partnership</h4>
+                <p className="text-sm opacity-90">Direct access to our team and decision-makers</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </motion.section>
+    </div>
   );
-}
+};
 
 export default About;

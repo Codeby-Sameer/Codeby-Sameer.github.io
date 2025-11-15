@@ -1,204 +1,141 @@
-
-import { motion } from 'framer-motion';
-import { 
-  Globe, 
-  Clock, 
-  Users, 
-  TrendingUp, 
-  Award, 
-  HeartHandshake,
-  ArrowRight,
-  CheckCircle,
-  Phone,
-  Mail,
-  MapPin,
-
-} from 'lucide-react';
-import ServicesCards from './sections/ServiceCards';
-import SocialMedia from './sections/SocailMedia';
-import Banner from './sections/Banner';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import About from './About';
+import { img } from 'framer-motion/client';
+import SocialMedia from './sections/SocailMedia';
+import QuoteCard from './sections/QuoteCard';
 
-function Home() {
-  const features = [
+const Home = () => {
+  const offerings = [
     {
-      icon: <Globe className="w-8 h-8" />,
-      title: 'Global Reach',
-      description: 'Serving clients across 20+ countries with localized expertise and global standards.',
+      title: 'Staffing',
+      description: 'Exclusive and verified HR resources with specialist skills and cross-industry experience.',
+      img:"/images/Digital1.avif",
+      path: '/staffing',
+      gradient: 'from-primary to-secondary'
     },
     {
-      icon: <Clock className="w-8 h-8" />,
-      title: '24/7 Support',
-      description: 'Round-the-clock technical support and maintenance services for uninterrupted operations.',
+      title: 'Services',
+      description: 'Comprehensive service from enablement to transformation aligned to your growth and business outcomes.',
+      img: '/images/People.avif',
+      path: '/services',
+      gradient: 'from-accentPink to-accentOrange'
     },
     {
-      icon: <Users className="w-8 h-8" />,
-      title: 'Expert Team',
-      description: 'Certified professionals with 10+ years of experience in diverse technology domains.',
-    },
-    {
-      icon: <TrendingUp className="w-8 h-8" />,
-      title: 'Proven Results',
-      description: 'Consistent delivery of projects that exceed client expectations and drive business growth.',
-    },
-  ];
-
-  const testimonials = [
-    {
-      name: 'Sarah Johnson',
-      role: 'CTO at TechInnovate',
-      content: 'GC Technologies transformed our digital infrastructure. Their expertise in cloud solutions helped us scale efficiently.',
-      company: 'TechInnovate'
-    },
-    {
-      name: 'Michael Chen',
-      role: 'Product Director at GlobalRetail',
-      content: 'Outstanding staffing solutions. They provided us with top-tier talent that perfectly matched our requirements.',
-      company: 'GlobalRetail'
-    },
-    {
-      name: 'Emily Rodriguez',
-      role: 'CEO at StartupGrid',
-      content: 'Partnering with GC Technologies was the best decision for our digital transformation journey.',
-      company: 'StartupGrid'
-    },
+      title: 'Solution',
+      description: 'Build digital capabilities, deploy applications, technology and infrastructure specific to industry solutions.',
+      img: '/images/Server-cuate.avif',
+      path: '/solutions',
+      gradient: 'from-secondary to-primary'
+    }
   ];
 
   return (
-    <div className="min-h-screen bg-slate-900">
-      <SocialMedia />
-      <Banner />
-      <ServicesCards />
-      
-      {/* Features Section */}
-      <section className="py-20 bg-slate-800">
-        <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Why Choose <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">GC Technologies</span>
-            </h2>
-            <p className="text-xl text-white/70 max-w-3xl mx-auto">
-              We combine cutting-edge technology with industry expertise to deliver exceptional results.
-            </p>
-          </motion.div>
+    <div className="min-h-screen">
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="text-center group"
-              >
-                <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-bold text-white mb-4">{feature.title}</h3>
-                <p className="text-white/70 leading-relaxed">{feature.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-20 bg-gradient-to-br from-purple-800 to-slate-600">
-        <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              What Our <span className="bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">Clients Say</span>
-            </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={testimonial.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-all duration-300"
-              >
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full flex items-center justify-center text-white font-bold">
-                    {testimonial.name.charAt(0)}
-                  </div>
-                  <div className="ml-4">
-                    <h4 className="text-white font-bold">{testimonial.name}</h4>
-                    <p className="text-white/60 text-sm">{testimonial.role}</p>
-                  </div>
-                </div>
-                <p className="text-white/80 italic mb-4">"{testimonial.content}"</p>
-                <div className="flex items-center text-amber-400">
-                  {[...Array(5)].map((_, i) => (
-                    <Award key={i} className="w-4 h-4 fill-current" />
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-slate-800">
-        <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Ready to <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">Transform</span> Your Business?
-            </h2>
-            <p className="text-xl text-white/70 mb-8 max-w-2xl mx-auto">
-              Let's discuss how GC Technologies can help you achieve your digital transformation goals.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <motion.div
-                className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl font-semibold cursor-pointer shadow-2xl"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Phone className="w-5 h-5" />
-                <Link to="/contact">Schedule a Call</Link>
-                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-              </motion.div>
-              
-              <motion.div
-                className="group inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-sm text-white border border-white/20 rounded-2xl font-semibold cursor-pointer"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Mail className="w-5 h-5" />
-                <Link to="/contact">Send Message</Link>
-              </motion.div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
+      {/* Hero Section */}
+    <section className="relative  text-white py-32  overflow-hidden">
+  {/* Background Image with Overlay */}
+  <div className="absolute inset-0 z-0">
+    <img
+      src="/images/background1.jpg"
+      alt="Technology Background"
+      className="w-full h-full object-cover"
+    />
     
+    {/* Gradient Overlay */}
+    <div className="absolute inset-0 bg-gradient-to-r from-slate/10 to-primary/80"></div>
+  </div>
+
+  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center animate-fade-in-up">
+      <h1 className="text-4xl md:text-6xl font-bold mb-6">
+        GC Technologies
+      </h1>
+      <p className="text-xl md:text-2xl mb-8 opacity-90">
+        Growth & Creative
+      </p>
+      <p className="text-lg md:text-xl px-3 max-w-3xl mx-auto mb-10 opacity-80">
+        Transforming businesses with innovative staffing solutions, comprehensive services, and cutting-edge technology solutions.
+      </p>
+      <Link
+        to="/about"
+        className="inline-block bg-accentOrange hover:bg-opacity-90 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105"
+      >
+        Learn More
+      </Link>
+    </div>
+  </div>
+</section>
+<SocialMedia/>
+
+      {/* Offerings Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-8 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 animate-fade-in">
+            <h2 className="text-3xl md:text-4xl font-bold text-darkBlue mb-4">
+              Our Offerings
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Comprehensive solutions tailored to drive your business growth and success
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {offerings.map((offering, index) => (
+              <div
+                key={offering.title}
+                className="animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <Link to={offering.path}>
+                  <div className="bg-white border border-1 border-gray-200  shadow-[20px_-20px_0_rgba(0,0,255,0.3)] hover:shadow-[20px_-20px_0_rgba(0,0,255,0.6)] transition-all duration-300 transform hover:-translate-y-2 h-full border border-gray-100 overflow-hidden">
+                    {/* <div className={`h-2 bg-gradient-to-r ${offering.gradient}`}></div> */}
+                    <div className="p-6">
+                   <div>
+                    <img src={offering.img} alt="" />
+                   </div>
+                      <h3 className="text-xl font-bold text-darkBlue mb-3">
+                        {offering.title}
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed">
+                        {offering.description}
+                      </p>
+                      <div className="mt-4 flex items-center text-primary font-semibold">
+                        <span>Explore</span>
+                        <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <About/>
+      {/* CTA Section */}
+      <section className="py-16 mb-8 bg-gradient-to-br from-darkBlue to-primary ">
+        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            Ready to Transform Your Business?
+          </h2>
+          <p className="text-xl text-white opacity-90 mb-8">
+            Let's discuss how our solutions can drive your success.
+          </p>
+          <Link
+            to="/contact"
+            className="inline-block bg-white text-primary hover:bg-gray-100 font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105"
+          >
+            Get In Touch
+          </Link>
+        </div>
+      </section>
+      <QuoteCard/>
     </div>
   );
-}
+};
 
 export default Home;

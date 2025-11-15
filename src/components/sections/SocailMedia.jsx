@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { hover, motion } from 'framer-motion';
 import { Briefcase, Facebook, FacebookIcon, Instagram, Linkedin, LinkedinIcon, Youtube } from 'lucide-react';
 
 function SocialMedia() {
@@ -6,30 +6,39 @@ function SocialMedia() {
     {
       name: 'LinkedIn',
       url: '#',
-      icon: <LinkedinIcon className="sm:w-5 sm:h-5 w-[22px] h-[22px]" fill='white'/>,
-      color: 'bg-blue-600 hover:bg-blue-700',
-      hoverColor: 'hover:bg-blue-700'
+      icon:   <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>,
+                 color: 'text-gray-400 hover:text-gray-300',
+                
+     
     },
     {
       name: 'Facebook',
       url: '#',
-      icon: <FacebookIcon className="sm:w-5 sm:h-5 w-[22px] h-[22px]" fill='white'/>,
-      color: 'bg-blue-600 hover:bg-blue-700',
-      hoverColor: 'hover:bg-blue-700'
+      icon: <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M22 12a10 10 0 10-11.5 9.95v-7.05h-2.2V12h2.2V9.8c0-2.18 1.3-3.38 3.3-3.38.96 0 1.96.17 1.96.17v2.15h-1.1c-1.08 0-1.42.67-1.42 1.36V12h2.42l-.39 2.9h-2.03v7.05A10 10 0 0022 12z"/>
+  </svg>,
+      color: 'text-gray-400 hover:text-gray-300',
+     
     },
     {
       name: 'Instagram',
       url: '#',
-      icon: <Instagram className="sm:w-5 sm:h-5 w-[22px] h-[22px]" fill='white'/>,
-      color: 'bg-gradient-to-br from-yellow-400 via-red-500 to-purple-600 hover:from-yellow-300 hover:via-red-400 hover:to-purple-500',
-      hoverColor: 'hover:bg-gradient-to-br from-yellow-300 via-red-400 to-purple-500'
+      icon: <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5A4.25 4.25 0 007.75 20.5h8.5a4.25 4.25 0 004.25-4.25v-8.5A4.25 4.25 0 0016.25 3.5h-8.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7zm5.25-.75a.75.75 0 110 1.5.75.75 0 010-1.5z"/>
+  </svg>,
+      color: 'text-gray-400 hover:text-gray-300',
+     
     },
     {
       name: 'YouTube',
       url: '#',
-      icon: <Youtube className="sm:w-5 sm:h-5 w-[22px] h-[22px]" fill='white' />,
-      color: 'bg-red-600 hover:bg-red-700',
-      hoverColor: 'hover:bg-red-700'
+      icon:  <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M23.5 6.2a2.9 2.9 0 00-2.05-2.05C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.45.65A2.9 2.9 0 00.5 6.2 30.2 30.2 0 000 12a30.2 30.2 0 00.5 5.8 2.9 2.9 0 002.05 2.05C4.5 20.5 12 20.5 12 20.5s7.5 0 9.45-.65a2.9 2.9 0 002.05-2.05A30.2 30.2 0 0024 12a30.2 30.2 0 00-.5-5.8zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/>
+  </svg>,
+      color: 'text-gray-400 hover:text-gray-300',
+     
     }
   ];
 
@@ -178,10 +187,10 @@ function SocialMedia() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.6 }}
-          className="relative text-xs font-semibold text-transparent bg-gradient-to-b from-white to-black bg-clip-text -rotate-90 origin-center whitespace-nowrap mb-8 overflow-hidden"
+          className="relative   text-xs font-semibold text-transparent bg-gradient-to-b from-white to-black bg-clip-text -rotate-90 origin-center whitespace-nowrap mb-8 overflow-hidden"
         >
-          <span className="">Follow Us</span>
-          <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/70 to-transparent animate-shine" />
+          <span className=""> Follow Us</span>
+          <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/70 to-transparent animate-shine " />
         </motion.div>
       </motion.div>
     </>
