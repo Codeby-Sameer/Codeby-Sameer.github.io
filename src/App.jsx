@@ -8,6 +8,7 @@ import ServicesPage from './pages/ServicesPage';
 import Contact from './components/Contact';
 import About from './components/About';
 import Home from './components/Home';
+import ScrollToTop from './utlis/ScrolledToTop';
 
 
 
@@ -15,6 +16,7 @@ import Home from './components/Home';
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home/>} />
