@@ -40,7 +40,7 @@ function SocialMedia() {
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1.2, duration: 0.6 }}
-        className="fixed left-2 top-1/3 transform -translate-y-1/2 z-50 flex-col items-center space-y-8 hidden sm:flex"
+        className="fixed left-2 top-1/3 transform -translate-y-1/2 z-40 flex-col items-center space-y-8 hidden sm:flex"
       >
         <div className="flex flex-col items-center space-y-5">
           {socialLinks.map((social, index) => (
@@ -115,7 +115,7 @@ function SocialMedia() {
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1.2, duration: 0.6 }}
-        className="sm:hidden fixed left-1 bottom-1/4 z-50 flex flex-col items-center space-y-6"
+        className="sm:hidden fixed left-1 bottom-1/4 z-40 flex flex-col items-center space-y-6"
       >
         <div className="flex flex-col items-center space-y-4">
           {socialLinks.map((social, index) => (
