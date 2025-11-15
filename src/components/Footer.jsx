@@ -1,4 +1,5 @@
-import { Building2, Mail, Phone, MapPin } from 'lucide-react';
+import { Phone, MapPin, MailIcon } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 function Footer() {
   const currentYear = new Date().getFullYear();
@@ -20,21 +21,21 @@ function Footer() {
             
             <div>
               <h4 className="text-white font-semibold mb-4">Services</h4>
-              <ul className="space-y-2 text-white/60">
-                <li>IT Staffing</li>
-                <li>Development Services</li>
-                <li>Cloud Solutions</li>
-                <li>Data Analytics</li>
+              <ul className="space-y-2 text-white/60 flex flex-col">
+                <Link to="/staffing">IT Staffing</Link>
+                <Link to="/services">Development Services</Link>
+                <Link to="/services">Cloud Solutions</Link>
+                <Link to="/services">Data Analytics</Link>
               </ul>
             </div>
             
             <div>
               <h4 className="text-white font-semibold mb-4">Company</h4>
               <ul className="space-y-2 text-white/60">
-                <li>About Us</li>
+                <Link to="/about">About Us</Link>
                 <li>Careers</li>
                 <li>Case Studies</li>
-                <li>Blog</li>
+                <Link>Blog</Link>
               </ul>
             </div>
             
@@ -42,16 +43,18 @@ function Footer() {
               <h4 className="text-white font-semibold mb-4">Contact</h4>
               <div className="space-y-2 text-white/60">
                 <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4" />
-                  <span>123 Tech Street, Innovation City</span>
+                  <MapPin  size={32} />
+                  <span>2nd Floor, Serenity Square Madhapur, Hyderabad India 500072</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Phone className="w-4 h-4" />
-                  <span>+1 (555) 123-4567</span>
+                  <Phone size={16} />
+                  <span>+91 9066647855 <br /> +91 8886051410</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Mail className="w-4 h-4" />
-                  <span>info@gctech.com</span>
+                  <MailIcon size={16} />
+                  <span>info@gctechsoft.com
+                    <br />hr@gctechsoft.com
+                  </span>
                 </div>
               </div>
             </div>

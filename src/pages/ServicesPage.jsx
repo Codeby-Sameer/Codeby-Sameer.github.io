@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Cloud, Cpu, ShieldCheck, Database, GraduationCap, Building, X, CheckCircle, ArrowRight, Users, Target, Globe, Zap } from 'lucide-react';
+import { s } from 'framer-motion/client';
 
 function ServicesPage() {
   const [selectedService, setSelectedService] = useState(null);
@@ -17,6 +18,228 @@ function ServicesPage() {
     setSelectedService(null);
     setSelectedAdditionalService(null);
   };
+
+  // Main Service Modal Component
+  const ServiceModal = ({ service, onClose }) => (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 animate-fade-in">
+      <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto animate-scale-in">
+        <div className="sticky top-0 bg-white border-b border-gray-200 p-6 rounded-t-2xl flex justify-between items-center">
+          <div className="flex items-center">
+            <div className={`w-12 h-12 bg-gradient-to-br ${service.gradient} rounded-xl flex items-center justify-center mr-4`}>
+              <service.icon className="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold text-gray-800">{service.title}</h3>
+            </div>
+          </div>
+          <button 
+            onClick={onClose}
+            className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+          >
+            <X className="w-6 h-6 text-gray-500" />
+          </button>
+        </div>
+        
+        <div className="p-6">
+          <div className="mb-8">
+            <p className="text-gray-700 text-lg leading-relaxed mb-6">
+              {service.details.description}
+            </p>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div>
+                <h4 className="font-bold text-gray-800 mb-4 text-lg flex items-center">
+                  <Zap className="w-5 h-5 text-blue-500 mr-2" />
+                  Key Features
+                </h4>
+                <div className="space-y-3">
+                  {service.details.features.map((feature, index) => (
+                    <div key={index} className="flex items-start">
+                      <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
+                      <span className="text-gray-700">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              <div>
+                <h4 className="font-bold text-gray-800 mb-4 text-lg flex items-center">
+                  <Target className="w-5 h-5 text-green-500 mr-2" />
+                  Business Benefits
+                </h4>
+                <div className="space-y-3">
+                  {service.details.benefits.map((benefit, index) => (
+                    <div key={index} className="flex items-start">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0" />
+                      <span className="text-gray-700">{benefit}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-blue-50 rounded-xl p-6">
+              <h4 className="font-bold text-blue-800 mb-3 text-lg flex items-center">
+                <Users className="w-5 h-5 text-blue-600 mr-2" />
+                Success Story
+              </h4>
+              <p className="text-blue-700">{service.details.caseStudy}</p>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-200 pt-6">
+            <h4 className="font-bold text-gray-800 mb-4 text-lg">Service Overview</h4>
+            <ul className="space-y-3">
+              {service.items.map((item, idx) => (
+                <li key={idx} className="flex items-start">
+                  <span className="text-blue-500 mt-1 mr-3 text-lg flex-shrink-0">•</span>
+                  <span className="text-gray-600">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  // Additional Service Modal Component
+  const AdditionalServiceModal = ({ service, onClose }) => (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 animate-fade-in">
+      <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto animate-scale-in">
+        <div className="sticky top-0 bg-white border-b border-gray-200 p-6 rounded-t-2xl flex justify-between items-center">
+          <div className="flex items-center">
+            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mr-4">
+              <service.icon className="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold text-gray-800">{service.title}</h3>
+              <p className="text-blue-500 font-medium">{service.description}</p>
+            </div>
+          </div>
+          <button 
+            onClick={onClose}
+            className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+          >
+            <X className="w-6 h-6 text-gray-500" />
+          </button>
+        </div>
+        
+        <div className="p-6">
+          <div className="mb-8">
+            <p className="text-gray-700 text-lg leading-relaxed mb-6">
+              {service.details.description}
+            </p>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div>
+                <h4 className="font-bold text-gray-800 mb-4 text-lg flex items-center">
+                  <Zap className="w-5 h-5 text-blue-500 mr-2" />
+                  Key Features
+                </h4>
+                <div className="space-y-3">
+                  {service.details.features.map((feature, index) => (
+                    <div key={index} className="flex items-start">
+                      <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
+                      <span className="text-gray-700">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              <div>
+                <h4 className="font-bold text-gray-800 mb-4 text-lg flex items-center">
+                {service.details.benefits && (
+                  <>
+                    <Target className="w-5 h-5 text-green-500 mr-2" />
+                  Key Benefits
+                  </>
+                  )}
+                </h4>
+                <div className="space-y-3">
+                  {service.details.benefits?.map((benefit, index) => (
+                    <div key={index} className="flex items-start">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0" />
+                      <span className="text-gray-700">{benefit}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Conditional sections for different service types */}
+            {service.details.technologies && (
+              <div className="mb-6">
+                <h4 className="font-bold text-gray-800 mb-3 text-lg flex items-center">
+                  <Globe className="w-5 h-5 text-purple-500 mr-2" />
+                  Technologies & Platforms
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {service.details.technologies.map((tech, index) => (
+                    <span key={index} className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {service.details.successMetrics && (
+              <div className="mb-6">
+                <h4 className="font-bold text-gray-800 mb-3 text-lg">Success Metrics</h4>
+                <div className="grid grid-cols-2 gap-4">
+                  {service.details.successMetrics.map((metric, index) => (
+                    <div key={index} className="bg-green-50 rounded-lg p-3 text-center">
+                      <span className="text-green-700 font-semibold text-sm">{metric}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {service.details.locations && (
+              <div className="mb-6">
+                <h4 className="font-bold text-gray-800 mb-3 text-lg">Available Locations</h4>
+                <div className="flex flex-wrap gap-2">
+                  {service.details.locations.map((location, index) => (
+                    <span key={index} className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
+                      {location}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {service.details.programs && (
+              <div>
+                <h4 className="font-bold text-gray-800 mb-3 text-lg">Training Programs</h4>
+                <div className="flex flex-wrap gap-2">
+                  {service.details.programs.map((program, index) => (
+                    <span key={index} className="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-medium">
+                      {program}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Service items section */}
+          <div className="border-t border-gray-200 pt-6">
+            <h4 className="font-bold text-gray-800 mb-4 text-lg">Service Overview</h4>
+            <ul className="space-y-3">
+              {service.items.map((item, idx) => (
+                <li key={idx} className="flex items-start">
+                  <span className="text-blue-500 mt-1 mr-3 text-lg flex-shrink-0">•</span>
+                  <span className="text-gray-600">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 
   const services = [
     {
@@ -285,208 +508,13 @@ function ServicesPage() {
         </div>
       </section>
 
-      {/* Service Detail Modal */}
+      {/* Render Modals */}
       {selectedService && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 animate-fade-in">
-          <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto animate-scale-in">
-            <div className="sticky top-0 bg-white border-b border-gray-200 p-6 rounded-t-2xl flex justify-between items-center">
-              <div className="flex items-center">
-                <div className={`w-12 h-12 bg-gradient-to-br ${selectedService.gradient} rounded-xl flex items-center justify-center mr-4`}>
-                  <selectedService.icon className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-gray-800">{selectedService.title}</h3>
-                </div>
-              </div>
-              <button 
-                onClick={closeModal}
-                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-              >
-                <X className="w-6 h-6 text-gray-500" />
-              </button>
-            </div>
-            
-            <div className="p-6">
-              <div className="mb-8">
-                <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                  {selectedService.details.description}
-                </p>
-                
-                <div className="grid md:grid-cols-2 gap-8 mb-8">
-                  <div>
-                    <h4 className="font-bold text-gray-800 mb-4 text-lg flex items-center">
-                      <Zap className="w-5 h-5 text-blue-500 mr-2" />
-                      Key Features
-                    </h4>
-                    <div className="space-y-3">
-                      {selectedService.details.features.map((feature, index) => (
-                        <div key={index} className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
-                          <span className="text-gray-700">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <h4 className="font-bold text-gray-800 mb-4 text-lg flex items-center">
-                      <Target className="w-5 h-5 text-green-500 mr-2" />
-                      Business Benefits
-                    </h4>
-                    <div className="space-y-3">
-                      {selectedService.details.benefits.map((benefit, index) => (
-                        <div key={index} className="flex items-start">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0" />
-                          <span className="text-gray-700">{benefit}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-blue-50 rounded-xl p-6">
-                  <h4 className="font-bold text-blue-800 mb-3 text-lg flex items-center">
-                    <Users className="w-5 h-5 text-blue-600 mr-2" />
-                    Success Story
-                  </h4>
-                  <p className="text-blue-700">{selectedService.details.caseStudy}</p>
-                </div>
-              </div>
-
-              <div className="border-t border-gray-200 pt-6">
-                <h4 className="font-bold text-gray-800 mb-4 text-lg">Service Overview</h4>
-                <ul className="space-y-3">
-                  {selectedService.items.map((item, idx) => (
-                    <li key={idx} className="flex items-start">
-                      <span className="text-blue-500 mt-1 mr-3 text-lg flex-shrink-0">•</span>
-                      <span className="text-gray-600">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+        <ServiceModal service={selectedService} onClose={closeModal} />
       )}
 
-      {/* Additional Service Detail Modal */}
       {selectedAdditionalService && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 animate-fade-in">
-          <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto animate-scale-in">
-            <div className="sticky top-0 bg-white border-b border-gray-200 p-6 rounded-t-2xl flex justify-between items-center">
-              <div className="flex items-center">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mr-4">
-                  <selectedAdditionalService.icon className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-gray-800">{selectedAdditionalService.title}</h3>
-                  <p className="text-blue-500 font-medium">{selectedAdditionalService.description}</p>
-                </div>
-              </div>
-              <button 
-                onClick={closeModal}
-                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-              >
-                <X className="w-6 h-6 text-gray-500" />
-              </button>
-            </div>
-            
-            <div className="p-6">
-              <div className="mb-8">
-                <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                  {selectedAdditionalService.details.description}
-                </p>
-                
-                <div className="grid md:grid-cols-2 gap-8 mb-8">
-                  <div>
-                    <h4 className="font-bold text-gray-800 mb-4 text-lg flex items-center">
-                      <Zap className="w-5 h-5 text-blue-500 mr-2" />
-                      Key Features
-                    </h4>
-                    <div className="space-y-3">
-                      {selectedAdditionalService.details.features.map((feature, index) => (
-                        <div key={index} className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
-                          <span className="text-gray-700">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <h4 className="font-bold text-gray-800 mb-4 text-lg flex items-center">
-                      <Target className="w-5 h-5 text-green-500 mr-2" />
-                      Key Benefits
-                    </h4>
-                    <div className="space-y-3">
-                      {selectedAdditionalService.details.benefits.map((benefit, index) => (
-                        <div key={index} className="flex items-start">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0" />
-                          <span className="text-gray-700">{benefit}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {selectedAdditionalService.details.technologies && (
-                  <div className="mb-6">
-                    <h4 className="font-bold text-gray-800 mb-3 text-lg flex items-center">
-                      <Globe className="w-5 h-5 text-purple-500 mr-2" />
-                      Technologies & Platforms
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {selectedAdditionalService.details.technologies.map((tech, index) => (
-                        <span key={index} className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {selectedAdditionalService.details.successMetrics && (
-                  <div className="mb-6">
-                    <h4 className="font-bold text-gray-800 mb-3 text-lg">Success Metrics</h4>
-                    <div className="grid grid-cols-2 gap-4">
-                      {selectedAdditionalService.details.successMetrics.map((metric, index) => (
-                        <div key={index} className="bg-green-50 rounded-lg p-3 text-center">
-                          <span className="text-green-700 font-semibold text-sm">{metric}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {selectedAdditionalService.details.locations && (
-                  <div className="mb-6">
-                    <h4 className="font-bold text-gray-800 mb-3 text-lg">Available Locations</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {selectedAdditionalService.details.locations.map((location, index) => (
-                        <span key={index} className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
-                          {location}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {selectedAdditionalService.details.programs && (
-                  <div>
-                    <h4 className="font-bold text-gray-800 mb-3 text-lg">Training Programs</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {selectedAdditionalService.details.programs.map((program, index) => (
-                        <span key={index} className="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-medium">
-                          {program}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
+        <AdditionalServiceModal service={selectedAdditionalService} onClose={closeModal} />
       )}
     </div>
   );

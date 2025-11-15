@@ -25,6 +25,7 @@ import {
   Code,
   BarChart3
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const StaffingPage = () => {
   const [activeSection, setActiveSection] = useState(null);
@@ -678,9 +679,9 @@ const StaffingPage = () => {
           <p className="mb-6 opacity-90 max-w-2xl mx-auto">
             Leverage our AI-powered platform and global expertise to find the perfect candidates for your organization.
           </p>
-          <button className="bg-white text-blue-600 px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl">
+          <Link to="/contact" className="bg-white my-2 text-blue-600 px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl">
             Get Started Today
-          </button>
+          </Link>
         </div>
       </div>
 

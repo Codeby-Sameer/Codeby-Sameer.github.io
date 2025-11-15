@@ -3,9 +3,10 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 function Contact() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
+ 
 
   const formik = useFormik({
     initialValues: {
@@ -33,10 +34,11 @@ function Contact() {
     onSubmit: (values, { setSubmitting, resetForm }) => {
       setTimeout(() => {
         console.log('Form submitted:', values);
-        setIsSubmitted(true);
+        toast.success("Your message has been sent successfully!");
+        
         resetForm();
-        setSubmitting(false);
-        setTimeout(() => setIsSubmitted(false), 5000);
+       
+      
       }, 2000);
     }
   });
@@ -52,8 +54,8 @@ function Contact() {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email Us",
-      content: "hanu@gctechsoft.com",
-      link: "mailto:hanu@gctechsoft.com",
+      content: "hr@gctechsoft.com\ninfo@gctechsoft.com ",
+      link: "mailto:hr@gctechsoft.com",
       color: "violet",
       delay: 0.2
     },
@@ -245,21 +247,7 @@ function Contact() {
               variants={cardVariants}
               className="lg:col-span-2 relative"
             >
-              {/* Success Message */}
-              {isSubmitted && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="absolute top-4 left-1/2 transform -translate-x-1/2 z-10 bg-green-500 text-white px-6 py-4 rounded-2xl shadow-lg"
-                >
-                  <div className="flex items-center space-x-2">
-                    <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
-                      <Send className="w-3 h-3 text-green-500" />
-                    </div>
-                    <span className="font-semibold">Thank you! We'll get back to you soon.</span>
-                  </div>
-                </motion.div>
-              )}
+              
 
               <div className="relative bg-white border border-slate-200 rounded-2xl p-8 lg:p-10 shadow-sm">
                 {/* Form Header */}

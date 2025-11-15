@@ -35,9 +35,7 @@ const Header = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <header className={`bg-white py-2 shadow-sm sticky top-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'shadow-lg' : 'shadow-sm'
-    }`}>
+    <header className={`bg-white py-2 shadow-sm sticky top-0 z-50 transition-all duration-300 `}>
       <div className="container mx-auto px-4 ">
         <div className="flex justify-between items-center">
           {/* Logo */}
@@ -76,15 +74,15 @@ const Header = () => {
           </button>
         </div>
         
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Fixed to overlay content */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-4 py-4 border-t border-gray-200">
-            <nav className="flex flex-col space-y-4">
+          <div className="md:hidden absolute left-0 right-0 top-full bg-white border-t border-gray-200 shadow-lg z-50">
+            <nav className="flex flex-col py-4 px-4">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`font-medium transition px-2 py-1 rounded-lg ${
+                  className={`font-medium transition px-4 py-3 rounded-lg ${
                     isActive(item.path)
                       ? 'text-blue-600 bg-blue-50'
                       : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
@@ -94,7 +92,6 @@ const Header = () => {
                   {item.label}
                 </Link>
               ))}
-           
             </nav>
           </div>
         )}
