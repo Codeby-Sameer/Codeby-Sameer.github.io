@@ -1,7 +1,6 @@
 // App.jsx
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
-import Hero from './components/Hero';
 import StaffingPage from './pages/StaffingPage';
 import SolutionsPage from './pages/SolutionsPage';
 import ServicesPage from './pages/ServicesPage';
