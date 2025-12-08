@@ -39,9 +39,11 @@ const OurClients = () => {
         }
       },
       {
-        breakpoint: 480, // sm
+        breakpoint: 640, // small screens
         settings: {
-          slidesToShow: 1
+          slidesToShow: 1,
+          centerMode: true,
+          centerPadding: '0px'
         }
       }
     ]
@@ -61,16 +63,16 @@ const OurClients = () => {
         </div>
 
         {/* Carousel */}
-        <div className="bg-lightGray rounded-2xl px-6 py-8 shadow-md">
+        <div className="bg-lightGray rounded-2xl px-3 sm:px-6 py-6 sm:py-8 shadow-md">
           <Slider {...settings}>
             {clients.map((client) => (
               <div key={client.name}>
                 <div className="flex items-center justify-center px-4">
-                  <div className="bg-white rounded-xl shadow-sm border border-gray-100 w-full flex items-center justify-center py-6 hover:shadow-md transition-shadow duration-300">
+                  <div className="bg-white rounded-xl shadow-sm border border-gray-100 w-full flex items-center justify-center py-6 px-4 hover:shadow-md transition-shadow duration-300">
                     <img
                       src={client.logo}
                       alt={client.name}
-                      className="max-h-16 object-contain  hover:grayscale-0 transition-all duration-300"
+                      className="w-full max-h-16 object-contain"
                     />
                   </div>
                 </div>
