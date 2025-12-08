@@ -4,6 +4,7 @@ import About from './About';
 import { img } from 'framer-motion/client';
 import SocialMedia from './sections/SocailMedia';
 import QuoteCard from './sections/QuoteCard';
+import OurClients from './sections/OurClients';
 
 const Home = () => {
   const offerings = [
@@ -34,7 +35,7 @@ const Home = () => {
     <div className="min-h-screen">
 
       {/* Hero Section */}
-    <section className="relative  text-white py-32  overflow-hidden">
+    <section className="relative  text-white md:py-32 py-20  overflow-hidden">
   {/* Background Image with Overlay */}
   <div className="absolute inset-0 z-0">
     <img
@@ -55,7 +56,7 @@ const Home = () => {
       <p className="text-xl md:text-2xl mb-8 opacity-90">
         Growth & Creative
       </p>
-      <p className="text-lg md:text-xl px-3 max-w-3xl mx-auto mb-10 opacity-80">
+      <p className="text-md md:text-xl px-3 max-w-3xl mx-auto mb-10 opacity-80">
         Transforming businesses with innovative staffing solutions, comprehensive services, and cutting-edge technology solutions.
       </p>
       <Link
@@ -76,7 +77,7 @@ const Home = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-darkBlue mb-4">
               Our Offerings
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="md:text-lg text-md text-gray-600 max-w-2xl mx-auto">
               Comprehensive solutions tailored to drive your business growth and success
             </p>
           </div>
@@ -116,6 +117,7 @@ const Home = () => {
         </div>
       </section>
       <About/>
+      <OurClients/>
       {/* CTA Section */}
       <section className="py-16 mb-8 bg-gradient-to-br from-darkBlue to-primary ">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">

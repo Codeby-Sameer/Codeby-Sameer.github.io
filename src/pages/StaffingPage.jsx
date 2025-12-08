@@ -1,11 +1,21 @@
 import React from 'react';
+import { 
+  FaSearch,
+  FaClipboardCheck,
+  FaCheckCircle,
+  FaFileAlt,
+  FaExchangeAlt,
+  FaBriefcase,
+  FaBolt,
+  FaBullseye
+} from 'react-icons/fa';
 import StaffingSolutions from '../components/sections/check';
 
 const StaffingPage = () => {
   const differentiators = [
     {
       phase: 'Sourcing',
-      icon: '🔍',
+      icon: <FaSearch className="text-3xl text-yellow-300" />,
       features: [
         'AI Driven Candidate Relevance Score',
         'Partial & Exact Match Search',
@@ -17,7 +27,7 @@ const StaffingPage = () => {
     },
     {
       phase: 'Screening & Selection',
-      icon: '📋',
+      icon: <FaClipboardCheck className="text-3xl text-blue-300" />,
       features: [
         'AI Chatbots & Voice BOT Interviews',
         'Coding Assessments & MCQs',
@@ -28,7 +38,7 @@ const StaffingPage = () => {
     },
     {
       phase: 'Background Check',
-      icon: '✅',
+      icon: <FaCheckCircle className="text-3xl text-green-300" />,
       features: [
         'DigiLocker Verification',
         'ITR & UAN EPFO Checks',
@@ -40,11 +50,11 @@ const StaffingPage = () => {
   ];
 
   const staffingTypes = [
-    { type: 'Contract', icon: '📝' },
-    { type: 'Contract to Hire', icon: '🔄' },
-    { type: 'Permanent / Full time Hire', icon: '💼' },
-    { type: 'Flexi Staffing (On demand)', icon: '⚡' },
-    { type: 'Work Ready Consultants (RTD)', icon: '🎯' }
+    { type: 'Contract', icon: <FaFileAlt className="text-primary" /> },
+    { type: 'Contract to Hire', icon: <FaExchangeAlt className="text-secondary" /> },
+    { type: 'Permanent / Full time Hire', icon: <FaBriefcase className="text-accentOrange" /> },
+    { type: 'Flexi Staffing (On demand)', icon: <FaBolt className="text-accentPink" /> },
+    { type: 'Work Ready Consultants (RTD)', icon: <FaBullseye className="text-darkBlue" /> }
   ];
 
   const domains = [
@@ -67,7 +77,7 @@ const StaffingPage = () => {
 
   return (
     <div className="min-h-screen py-12 bg-lightGray">
-      <div cclassName="max-w-7xl ">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
           <h1 className="text-4xl md:text-5xl font-bold text-darkBlue mb-6">
@@ -79,17 +89,22 @@ const StaffingPage = () => {
         </div>
 
         {/* AI Differentiator */}
-        <div className="mb-16 animate-fade-in-up ">
-          <div className="bg-gradient-to-r from-primary to-secondary  p-8 text-white">
+        <div className="mb-16 animate-fade-in-up">
+          <div className="bg-gradient-to-r from-primary to-secondary p-8 text-white rounded-2xl">
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold mb-4">AI Driven Profiling</h2>
               <p className="text-xl opacity-90">Powered by hirex.ai & Digiverifier</p>
             </div>
             
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              {differentiators.map((item, index) => (
-                <div key={item.phase} className="bg-white bg-opacity-10  p-6 backdrop-blur-sm">
-                  <div className="text-3xl mb-4">{item.icon}</div>
+              {differentiators.map((item) => (
+                <div 
+                  key={item.phase} 
+                  className="bg-white bg-opacity-10 p-6 backdrop-blur-sm rounded-xl"
+                >
+                  <div className="mb-4">
+                    {item.icon}
+                  </div>
                   <h3 className="text-xl font-semibold mb-4">{item.phase}</h3>
                   <ul className="space-y-2">
                     {item.features.map((feature, idx) => (
@@ -104,9 +119,8 @@ const StaffingPage = () => {
             </div>
           </div>
         </div>
-        <StaffingSolutions/>
 
-    
+        <StaffingSolutions />
 
         {/* CTA */}
         <div className="mt-16 text-center animate-fade-in px-8">

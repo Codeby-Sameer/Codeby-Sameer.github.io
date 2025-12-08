@@ -1,23 +1,45 @@
+import React from 'react';
+import {
+  FaUsers,
+  FaFileAlt,
+  FaExchangeAlt,
+  FaBriefcase,
+  FaBolt,
+  FaBullseye,
+  FaMagic,
+  FaChartBar,
+  FaBuilding,
+  FaWindows,
+  FaUserFriends,
+  FaCloud,
+  FaLaptopCode,
+  FaUniversity,
+  FaShoppingBag,
+  FaIndustry,
+  FaMicroscope,
+  FaCarSide,
+  FaShieldAlt,
+  FaGlobeAmericas,
+} from 'react-icons/fa';
 
 export const StaffingTypesCard = ({ types }) => {
   const getIcon = (type) => {
-    const icons = {
-      'Contract': '📝',
-      'Contract to Hire': '🔄',
-      'Permanent / Full time Hire': '💼',
-      'Flexi Staffing (On demand)': '⚡',
-      'Work Ready Consultants (RTD)': '🎯'
+    const map = {
+      'Contract': <FaFileAlt className="text-lg" />,
+      'Contract to Hire': <FaExchangeAlt className="text-lg" />,
+      'Permanent / Full time Hire': <FaBriefcase className="text-lg" />,
+      'Flexi Staffing (On demand)': <FaBolt className="text-lg" />,
+      'Work Ready Consultants (RTD)': <FaBullseye className="text-lg" />
     };
-    return icons[type] || '👥';
+    return map[type] || <FaUsers className="text-lg" />;
   };
 
   return (
-    <div className="bg-white  shadow-[20px_-20px_0_rgba(0,0,255,0.3)] hover:shadow-[20px_-20px_0_rgba(0,0,255,0.6)] transition-all duration-300 transform hover:-translate-y-1 border border-gray-200 overflow-hidden h-full">
-      
+    <div className="bg-white shadow-[20px_-20px_0_rgba(0,0,255,0.3)] hover:shadow-[20px_-20px_0_rgba(0,0,255,0.6)] transition-all duration-300 transform hover:-translate-y-1 border border-gray-200 overflow-hidden h-full">
       <div className="p-6">
         <div className="flex items-center mb-6">
           <div className="w-10 h-10 bg-primary bg-opacity-10 rounded-lg flex items-center justify-center mr-4">
-            <span className="text-xl">👥</span>
+            <FaUsers className="text-xl text-primary" />
           </div>
           <h3 className="text-xl font-bold text-darkBlue">Staffing Types</h3>
         </div>
@@ -47,25 +69,23 @@ export const StaffingTypesCard = ({ types }) => {
 };
 
 
-
- export const DomainExpertiseCard = ({ expertise }) => {
+export const DomainExpertiseCard = ({ expertise }) => {
   const getTechIcon = (expertiseItem) => {
-    if (expertiseItem.includes('PEGA')) return '🔮';
-    if (expertiseItem.includes('DEVOPS') || expertiseItem.includes('DATA')) return '📊';
-    if (expertiseItem.includes('SAP')) return '🏢';
-    if (expertiseItem.includes('MS Technologies')) return '🪟';
-    if (expertiseItem.includes('PeopleSoft') || expertiseItem.includes('Siebel')) return '👥';
-    if (expertiseItem.includes('Cloud')) return '☁️';
-    return '💻';
+    if (expertiseItem.includes('PEGA')) return <FaMagic className="text-lg" />;
+    if (expertiseItem.includes('DEVOPS') || expertiseItem.includes('DATA')) return <FaChartBar className="text-lg" />;
+    if (expertiseItem.includes('SAP')) return <FaBuilding className="text-lg" />;
+    if (expertiseItem.includes('MS Technologies')) return <FaWindows className="text-lg" />;
+    if (expertiseItem.includes('PeopleSoft') || expertiseItem.includes('Siebel')) return <FaUserFriends className="text-lg" />;
+    if (expertiseItem.includes('Cloud')) return <FaCloud className="text-lg" />;
+    return <FaLaptopCode className="text-lg" />;
   };
 
   return (
-    <div className="bg-white  shadow-[20px_-20px_0_rgba(138,60,203,0.6)] hover:shadow-[20px_-20px_0_rgba(138,60,203,0.9)] transition-all duration-300 transform hover:-translate-y-1 border border-gray-200 overflow-hidden h-full">
-      
+    <div className="bg-white shadow-[20px_-20px_0_rgba(138,60,203,0.6)] hover:shadow-[20px_-20px_0_rgba(138,60,203,0.9)] transition-all duration-300 transform hover:-translate-y-1 border border-gray-200 overflow-hidden h-full">
       <div className="p-6">
         <div className="flex items-center mb-6">
           <div className="w-10 h-10 bg-secondary bg-opacity-10 rounded-lg flex items-center justify-center mr-4">
-            <span className="text-xl">🎯</span>
+            <FaBullseye className="text-xl text-secondary" />
           </div>
           <h3 className="text-xl font-bold text-darkBlue">Domain Expertise</h3>
         </div>
@@ -95,27 +115,25 @@ export const StaffingTypesCard = ({ types }) => {
 };
 
 
-
- export const IndustryFocusCard = ({ industries }) => {
+export const IndustryFocusCard = ({ industries }) => {
   const getIndustryIcon = (industry) => {
-    const icons = {
-      'Banking / Financials': '🏦',
-      'Retail': '🛍️',
-      'Manufacturing': '🏭',
-      'Life Sciences / Healthcare': '⚕️',
-      'Automotive': '🚗',
-      'Insurance and others...': '🛡️'
+    const map = {
+      'Banking / Financials': <FaUniversity className="text-lg" />,
+      'Retail': <FaShoppingBag className="text-lg" />,
+      'Manufacturing': <FaIndustry className="text-lg" />,
+      'Life Sciences / Healthcare': <FaMicroscope className="text-lg" />,
+      'Automotive': <FaCarSide className="text-lg" />,
+      'Insurance and others...': <FaShieldAlt className="text-lg" />,
     };
-    return icons[industry] || '🏢';
+    return map[industry] || <FaBuilding className="text-lg" />;
   };
 
   return (
-    <div className="bg-white  shadow-[20px_-20px_0_rgba(230,151,44,0.6)] hover:shadow-[20px_-20px_0_rgba(230,151,44,0.9)] transition-all duration-300 transform hover:-translate-y-1 border border-gray-200 overflow-hidden h-full">
-
+    <div className="bg-white shadow-[20px_-20px_0_rgba(230,151,44,0.6)] hover:shadow-[20px_-20px_0_rgba(230,151,44,0.9)] transition-all duration-300 transform hover:-translate-y-1 border border-gray-200 overflow-hidden h-full">
       <div className="p-6">
         <div className="flex items-center mb-6">
           <div className="w-10 h-10 bg-accentOrange bg-opacity-10 rounded-lg flex items-center justify-center mr-4">
-            <span className="text-xl">🌍</span>
+            <FaGlobeAmericas className="text-xl text-accentOrange" />
           </div>
           <h3 className="text-xl font-bold text-darkBlue">Industry Focus</h3>
         </div>
@@ -145,18 +163,14 @@ export const StaffingTypesCard = ({ types }) => {
 };
 
 
-
-
-
-
-
 const StaffingSolutions = () => {
   const staffingData = {
-    description: "GC Technologies is diversified across service lines and industry sectors to provide our clients with the best possible HR services and solutions. We can evolve with the changing staffing, business and economic conditions nationwide. Additionally, by leveraging our worldwide network and staffing expertise, GC Technologies is equipped to guide our clients through their most complex and challenging staffing undertakings. We have used our expertise to assist our clients in developing strategic staffing plans, consult on long-term HR projects and fully staff complex projects with the best candidates.",
+    description:
+      "GC Technologies is diversified across service lines and industry sectors to provide our clients with the best possible HR services and solutions. We can evolve with the changing staffing, business and economic conditions nationwide. Additionally, by leveraging our worldwide network and staffing expertise, GC Technologies is equipped to guide our clients through their most complex and challenging staffing undertakings. We have used our expertise to assist our clients in developing strategic staffing plans, consult on long-term HR projects and fully staff complex projects with the best candidates.",
     
     staffingTypes: [
       "Contract",
-      "Contract to Hire", 
+      "Contract to Hire",
       "Permanent / Full time Hire",
       "Flexi Staffing (On demand)",
       "Work Ready Consultants (RTD)"
@@ -164,7 +178,7 @@ const StaffingSolutions = () => {
     
     domainExpertise: [
       "Expertise in sourcing PEGA Specialist",
-      "DEVOPS and DATA ANALYTICS resources", 
+      "DEVOPS and DATA ANALYTICS resources",
       "SAP (Functional, Technical, Niche requirements such as CRM, Success Factors, ISU etc.)",
       "MS Technologies",
       "PeopleSoft & Siebel",
@@ -173,7 +187,7 @@ const StaffingSolutions = () => {
     
     industryFocus: [
       "Banking / Financials",
-      "Retail", 
+      "Retail",
       "Manufacturing",
       "Life Sciences / Healthcare",
       "Automotive",
@@ -182,8 +196,8 @@ const StaffingSolutions = () => {
   };
 
   return (
-    <div className="py-12 lg:px-4 px-6 bg-gary-200">
-      <div className="max-w-7xl  ">
+    <div className="py-12 lg:px-4 px-6 bg-gray-200">
+      <div className="max-w-7xl">
         {/* Header */}
         <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold text-darkBlue mb-4">

@@ -1,15 +1,25 @@
 import React from 'react';
+import {
+  FaCogs,
+  FaRobot,
+  FaCloud,
+  FaDesktop,
+  FaUserGraduate,
+  FaGlobeAmericas,
+  FaCheckCircle,
+} from 'react-icons/fa';
 
-const ServicesPage= () => {
+const ServicesPage = () => {
   const consultingServices = {
     title: "Consulting and Managed Service",
     subtitle: "Empowering Business Success with Strategic & Business Continuity",
-    description: "GC Technologies empowers businesses by providing strategic IT consulting, aligning technology solutions with business goals to drive operational efficiency and growth. With tailored services such as cloud migration, AI powered operations and cybersecurity consulting, GC Technologies ensures businesses make informed IT investments. This comprehensive approach maximizes long-term success and business continuity.",
+    description:
+      "GC Technologies empowers businesses by providing strategic IT consulting, aligning technology solutions with business goals to drive operational efficiency and growth. With tailored services such as cloud migration, AI powered operations and cybersecurity consulting, GC Technologies ensures businesses make informed IT investments. This comprehensive approach maximizes long-term success and business continuity.",
     
     categories: [
       {
         name: "Technology Consulting",
-        icon: "💼",
+        icon: FaCogs,
         gradient: "from-primary to-blue-600",
         services: [
           "Cloud Strategy & Consulting help client develop and implement cloud adoption strategies",
@@ -19,7 +29,7 @@ const ServicesPage= () => {
       },
       {
         name: "AI Powered IT Ops (AIOps)",
-        icon: "🤖",
+        icon: FaRobot,
         gradient: "from-secondary to-purple-600",
         services: [
           "MSFT Copilot for automation and productivity enhancement of Office365",
@@ -29,7 +39,7 @@ const ServicesPage= () => {
       },
       {
         name: "Cloud Migration",
-        icon: "☁️",
+        icon: FaCloud,
         gradient: "from-accentPink to-pink-600",
         services: [
           "Lift & Shift Migration from OnPrem to OnCloud eg Microsoft, AWS, IBM, Google etc",
@@ -42,12 +52,13 @@ const ServicesPage= () => {
 
   const managedServices = {
     title: "GCC, Hire-Train-Deploy, Application Services",
-    description: "GC Technologies provides Application Services for SAP, Salesforce (SFDC), and PEGA, helping businesses implement and optimize enterprise solutions for greater efficiency. The Hire-Train-Deploy (HTD) model bridges the skills gap by sourcing, training, and deploying job-ready professionals tailored to client needs. With the Scalable Global Capability Center (GCC) offering, GC Technologies helps businesses establish agile and cost-effective offshore operational units, providing scalability and global talent access. These services drive business transformation, talent optimization, and operational efficiency.",
+    description:
+      "GC Technologies provides Application Services for SAP, Salesforce (SFDC), and PEGA, helping businesses implement and optimize enterprise solutions for greater efficiency. The Hire-Train-Deploy (HTD) model bridges the skills gap by sourcing, training, and deploying job-ready professionals tailored to client needs. With the Scalable Global Capability Center (GCC) offering, GC Technologies helps businesses establish agile and cost-effective offshore operational units, providing scalability and global talent access. These services drive business transformation, talent optimization, and operational efficiency.",
     
     services: [
       {
         name: "Application Services (AS)",
-        icon: "🖥️",
+        icon: FaDesktop,
         gradient: "from-accentOrange to-orange-500",
         features: [
           "Application management services",
@@ -58,7 +69,7 @@ const ServicesPage= () => {
       },
       {
         name: "Hire Train Deploy (HTD)",
-        icon: "👨‍💻",
+        icon: FaUserGraduate,
         gradient: "from-green-500 to-emerald-600",
         features: [
           "Customized candidate selection process",
@@ -69,7 +80,7 @@ const ServicesPage= () => {
       },
       {
         name: "Global Capability Center (GCC)",
-        icon: "🌍",
+        icon: FaGlobeAmericas,
         gradient: "from-indigo-500 to-purple-600",
         features: [
           "Agile, scalable operational units",
@@ -84,7 +95,7 @@ const ServicesPage= () => {
   return (
     <div className="min-h-screen bg-accentOrange/10">
       {/* Header Section */}
-      <section className="bg-gradient-to-r from-accentOrange to-accentPink  text-white py-20">
+      <section className="bg-gradient-to-r from-accentOrange to-accentPink text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             Our Services
@@ -112,7 +123,7 @@ const ServicesPage= () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {consultingServices.categories.map((category, index) => (
-              <ServiceCategoryCard 
+              <ServiceCategoryCard
                 key={category.name}
                 category={category}
                 index={index}
@@ -136,7 +147,7 @@ const ServicesPage= () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {managedServices.services.map((service, index) => (
-              <ManagedServiceCard 
+              <ManagedServiceCard
                 key={service.name}
                 service={service}
                 index={index}
@@ -150,7 +161,7 @@ const ServicesPage= () => {
       <section className="py-16 bg-accentOrange/10">
         <div className="max-w-8xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-r from-primary to-secondary rounded-2xl p-12 text-white">
-            <h2 className="lg:text-3xl  text-xl font-bold mb-6">
+            <h2 className="lg:text-3xl text-xl font-bold mb-6">
               Ready to Empower Your Business Success?
             </h2>
             <p className="lg:text-xl text-lg opacity-90 mb-8 max-w-2xl mx-auto">
@@ -168,18 +179,21 @@ const ServicesPage= () => {
 
 // Service Category Card Component
 const ServiceCategoryCard = ({ category, index }) => {
+  const Icon = category.icon;
+
   return (
-    <div 
-      className="animate-fade-in-up bg-white  border border-gray-200 shadow-[20px_-20px_0_rgba(230,151,44,0.6)] hover:shadow-[20px_-20px_0_rgba(230,151,44,0.9)]  transition-all duration-300 transform hover:-translate-y-2 overflow-hidden"
+    <div
+      className="animate-fade-in-up bg-white border border-gray-200 shadow-[20px_-20px_0_rgba(230,151,44,0.6)] hover:shadow-[20px_-20px_0_rgba(230,151,44,0.9)] transition-all duration-300 transform hover:-translate-y-2 overflow-hidden"
       style={{ animationDelay: `${index * 0.2}s` }}
     >
-      
       <div className="p-6">
         <div className="flex items-center mb-4">
-          <div className="text-3xl mr-4">{category.icon}</div>
+          <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${category.gradient} flex items-center justify-center mr-4 shadow-md`}>
+            <Icon className="text-2xl text-white" />
+          </div>
           <h3 className="text-xl font-bold text-darkBlue">{category.name}</h3>
         </div>
-        
+
         <ul className="space-y-3">
           {category.services.map((service, serviceIndex) => (
             <li key={serviceIndex} className="flex items-start text-gray-600">
@@ -188,8 +202,6 @@ const ServiceCategoryCard = ({ category, index }) => {
             </li>
           ))}
         </ul>
-        
-       
       </div>
     </div>
   );
@@ -197,33 +209,30 @@ const ServiceCategoryCard = ({ category, index }) => {
 
 // Managed Service Card Component
 const ManagedServiceCard = ({ service, index }) => {
+  const Icon = service.icon;
+
   return (
-    <div 
+    <div
       className="animate-fade-in-up bg-white shadow-[20px_-20px_0_rgba(138,60,203,0.6)] hover:shadow-[20px_-20px_0_rgba(138,60,203,0.9)] transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100"
       style={{ animationDelay: `${index * 0.15}s` }}
     >
-
       <div className="p-6">
         <div className="text-center mb-4">
-          <div className="text-4xl mb-3">{service.icon}</div>
+          <div className={`w-14 h-14 mx-auto mb-3 rounded-full bg-gradient-to-br ${service.gradient} flex items-center justify-center shadow-md`}>
+            <Icon className="text-2xl text-white" />
+          </div>
           <h3 className="text-lg font-bold text-darkBlue">{service.name}</h3>
         </div>
-        
+
         <ul className="space-y-2">
           {service.features.map((feature, featureIndex) => (
             <li key={featureIndex} className="flex items-start text-gray-600 group">
-              <svg 
-                className="w-4 h-4 text-primary mr-2 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" 
-                fill="currentColor" 
-                viewBox="0 0 20 20"
-              >
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
+              <FaCheckCircle className="w-4 h-4 text-primary mr-2 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
               <span className="text-sm leading-relaxed">{feature}</span>
             </li>
           ))}
         </ul>
-        
+
         <div className="mt-6 pt-4 border-t border-gray-200 text-center">
           <p className="text-xs text-gray-500">
             {service.name === "Application Services (AS)" && "Enterprise solutions"}
