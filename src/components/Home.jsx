@@ -35,7 +35,7 @@ const Home = () => {
     <div className="min-h-screen">
 
       {/* Hero Section */}
-    <section className="relative  text-white md:py-32 py-28  overflow-hidden">
+    <section className="relative  text-white py-32   overflow-hidden">
   {/* Background Image with Overlay */}
   <div className="absolute inset-0 z-0">
     <img

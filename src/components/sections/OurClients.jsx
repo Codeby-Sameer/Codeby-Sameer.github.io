@@ -22,28 +22,26 @@ const OurClients = () => {
     autoplay: true,
     autoplaySpeed: 2000,
     speed: 600,
-    slidesToShow: 4,
-    slidesToScroll: 1,
     pauseOnHover: true,
+    slidesToShow: 4,         // 🖥️ default: desktop
+    slidesToScroll: 1,
     responsive: [
       {
-        breakpoint: 1024, // lg
+        breakpoint: 1024,    // <= 1024px
         settings: {
           slidesToShow: 3
         }
       },
       {
-        breakpoint: 768, // md
+        breakpoint: 768,     // <= 768px
         settings: {
           slidesToShow: 2
         }
       },
       {
-        breakpoint: 640, // small screens
+        breakpoint: 640,     // <= 640px (phones)
         settings: {
-          slidesToShow: 1,
-          centerMode: true,
-          centerPadding: '0px'
+          slidesToShow: 1
         }
       }
     ]
@@ -67,8 +65,8 @@ const OurClients = () => {
           <Slider {...settings}>
             {clients.map((client) => (
               <div key={client.name}>
-                <div className="flex items-center justify-center px-4">
-                  <div className="bg-white rounded-xl shadow-sm border border-gray-100 w-full flex items-center justify-center py-6 px-4 hover:shadow-md transition-shadow duration-300">
+                <div className="flex items-center justify-center">
+                  <div className="bg-white rounded-xl shadow-sm border border-gray-100 w-full flex items-center justify-center py-6 px-4 hover:shadow-md transition-shadow duration-300 mx-3">
                     <img
                       src={client.logo}
                       alt={client.name}
