@@ -36,6 +36,12 @@ const Contact = () => {
       link: null,
     },
   ];
+  const isDev = import.meta.env.MODE === "development";
+
+  const API_URL = isDev
+    ? import.meta.env.VITE_API_BASE_URL_DEV
+    : import.meta.env.VITE_API_BASE_URL;
+
 
   const formik = useFormik({
     initialValues: {
@@ -70,12 +76,35 @@ const Contact = () => {
 
       return errors;
     },
-    onSubmit: (values, { resetForm }) => {
-      console.log('Form submitted:', values);
-      alert('Thank you for your message! We will get back to you soon.');
-      resetForm();
+    onSubmit: async (values, { resetForm }) => {
+      try {
+        const response = await fetch(
+          `${API_URL}${import.meta.env.VITE_CONTACT_ENDPOINT}`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(values),
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error("Failed to send message");
+        }
+
+        alert("Thank you for your message! We will get back to you soon.");
+        resetForm();
+      } catch (error) {
+        console.error(error);
+        alert("Something went wrong. Please try again later.");
+      }
     },
+
   });
+
+
+
 
   return (
     <div className="min-h-screen py-12 bg-lightGray">
@@ -282,7 +311,7 @@ const Contact = () => {
                 </ul>
               </div>
 
-           
+
             </div>
           </div>
         </div>
