@@ -42,7 +42,6 @@ const Contact = () => {
     ? import.meta.env.VITE_API_BASE_URL_DEV
     : import.meta.env.VITE_API_BASE_URL;
 
-
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -76,30 +75,33 @@ const Contact = () => {
 
       return errors;
     },
-    onSubmit: async (values, { resetForm }) => {
-      try {
-        const response = await fetch(
-          `${API_URL}${import.meta.env.VITE_CONTACT_ENDPOINT}`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(values),
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error("Failed to send message");
-        }
-
-        alert("Thank you for your message! We will get back to you soon.");
-        resetForm();
-      } catch (error) {
-        console.error(error);
-        alert("Something went wrong. Please try again later.");
+  onSubmit: async (values, { resetForm, setSubmitting }) => {
+  try {
+    const response = await fetch(
+      `${API_URL}${import.meta.env.VITE_CONTACT_ENDPOINT}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
       }
-    },
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to send message");
+    }
+   
+
+    alert("Thank you for your message! We will get back to you soon.");
+    resetForm();
+  } catch (error) {
+   
+    alert("Something went wrong. Please try again later.");
+  } finally {
+    setSubmitting(false); // 🔴 VERY IMPORTANT
+  }
+},
 
   });
 
@@ -249,12 +251,16 @@ const Contact = () => {
                   )}
                 </div>
 
-                <button
-                  type="submit"
-                  className="w-full  bg-primary hover:bg-blue-700 text-white font-semibold py-5 px-8 rounded-lg transition-colors duration-300 transform hover:scale-105"
-                >
-                  Send Message
-                </button>
+               <button
+  type="submit"
+  disabled={formik.isSubmitting}
+  className={`w-full bg-primary text-white font-semibold py-5 px-8 rounded-lg transition-colors duration-300 transform hover:scale-105
+    ${formik.isSubmitting ? "opacity-60 cursor-not-allowed hover:scale-100" : "hover:bg-blue-700"}
+  `}
+>
+  {formik.isSubmitting ? "Sending..." : "Send Message"}
+</button>
+
               </form>
             </div>
           </div>
